@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="xyz.iterus.authenticator.MainFragment"
+        android:name="xyz.iterus.authenticator.ui.MainFragment"
         android:label="MainFragment"
         />
 
