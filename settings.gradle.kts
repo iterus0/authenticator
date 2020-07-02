@@ -1,3 +1,3 @@
 rootProject.buildFileName = "build.gradle.kts"
 
-include(":app", ":ui")
+include(":app", ":core", ":ui")
