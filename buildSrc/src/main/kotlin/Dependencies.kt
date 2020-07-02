@@ -52,6 +52,3 @@ internal fun Project.configureDependencies() = dependencies {
     }
 }
 
-internal fun Project.containsAndroidPlugin(): Boolean {
-    return project.plugins.toList().any { plugin -> plugin is AndroidBasePlugin }
-}
