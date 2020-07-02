@@ -16,7 +16,7 @@ object Versions {
     const val coroutines = "1.3.7"
     const val appcompat = "1.1.0"
     const val constraintlayout = "1.1.3"
-    const val navigaton = "2.3.0"
+    const val navigation = "2.3.0"
     const val lifecycle = "1.1.1"
     const val ktx_core = "1.3.0"
     const val junit = "4.13"

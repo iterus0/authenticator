@@ -22,8 +22,8 @@ object Dependencies {
 
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
-    const val nav_fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigaton}"
-    const val nav_ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigaton}"
+    const val nav_fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    const val nav_ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val lifecycle_ext = "android.arch.lifecycle:extensions:${Versions.lifecycle}"
     const val lifecycle_compiler = "android.arch.lifecycle:compiler:${Versions.lifecycle}"
     const val ktx_core = "androidx.core:core-ktx:${Versions.ktx_core}"
