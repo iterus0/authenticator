@@ -1,4 +1,4 @@
-package xyz.iterus.authenticator
+package xyz.iterus.authenticator.ui
 
 import androidx.fragment.app.Fragment
 
