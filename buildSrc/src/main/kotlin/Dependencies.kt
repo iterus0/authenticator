@@ -1,6 +1,5 @@
 package xyz.iterus.build.defaults
 
-import com.android.build.gradle.api.AndroidBasePlugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
@@ -24,8 +23,9 @@ object Dependencies {
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
     const val nav_fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val nav_ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
-    const val lifecycle_ext = "android.arch.lifecycle:extensions:${Versions.lifecycle}"
-    const val lifecycle_compiler = "android.arch.lifecycle:compiler:${Versions.lifecycle}"
+    const val lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val lifecycle_livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+    const val lifecycle_compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
     const val ktx_core = "androidx.core:core-ktx:${Versions.ktx_core}"
 
     const val leakcanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakcanary}"
@@ -51,4 +51,3 @@ internal fun Project.configureDependencies() = dependencies {
         add("implementation", Dependencies.koin_core)
     }
 }
-

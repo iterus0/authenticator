@@ -14,7 +14,8 @@ dependencies {
     implementation(Dependencies.coroutines_android)
     implementation(Dependencies.koin_viewmodel)
 
-    implementation(Dependencies.lifecycle_ext)
+    implementation(Dependencies.lifecycle_viewmodel)
+    implementation(Dependencies.lifecycle_livedata)
     kapt(Dependencies.lifecycle_compiler)
 
     implementation(Dependencies.appcompat)
