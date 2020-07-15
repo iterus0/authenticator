@@ -11,7 +11,7 @@ class RFC4226Test {
 
     // https://tools.ietf.org/html/rfc4226#appendix-D
     @Test
-    fun `verify reference test values`() {
+    fun `reference test values`() {
         // GIVEN
         val secret = "12345678901234567890"
         val digits = 6
@@ -29,7 +29,7 @@ class RFC4226Test {
     }
 
     @Test
-    fun `verify with 8 digits`() {
+    fun `tokens with 8 digits`() {
         // GIVEN
         val secret = "12345678901234567890"
         val digits = 8
@@ -47,7 +47,7 @@ class RFC4226Test {
     }
 
     @Test
-    fun `verify with non zero counter`() {
+    fun `tokens with non zero counter`() {
         // GIVEN
         val secret = "12345678901234567890"
         val digits = 6
@@ -66,7 +66,7 @@ class RFC4226Test {
     }
 
     @Test
-    fun `verify SHA256`() {
+    fun `tokens with SHA256 algorithm`() {
         // GIVEN
         val secret = "1234567890ABCDEFGHI"
         val digits = 6
@@ -84,7 +84,7 @@ class RFC4226Test {
     }
 
     @Test
-    fun `verify SHA512`() {
+    fun `tokens with SHA512 algorithm`() {
         // GIVEN
         val secret = "A1B2C3D4E5F6G7H8I9J0"
         val digits = 6

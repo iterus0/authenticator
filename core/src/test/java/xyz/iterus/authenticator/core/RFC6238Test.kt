@@ -13,7 +13,7 @@ class RFC6238Test {
 
     // https://tools.ietf.org/html/rfc6238.html#appendix-B
     @Test
-    fun `verify reference test values for SHA1`() {
+    fun `reference test values for SHA1`() {
         // GIVEN
         val secret = "1234567890".repeat(2)
         val digits = 8
@@ -35,7 +35,7 @@ class RFC6238Test {
 
     // https://tools.ietf.org/html/rfc6238.html#appendix-B
     @Test
-    fun `verify reference test values for SHA256`() {
+    fun `reference test values for SHA256`() {
         // GIVEN
         val secret = "1234567890".repeat(3) + "12"
         val digits = 8
@@ -57,7 +57,7 @@ class RFC6238Test {
 
     // https://tools.ietf.org/html/rfc6238.html#appendix-B
     @Test
-    fun `verify reference test values for SHA512`() {
+    fun `reference test values for SHA512`() {
         // GIVEN
         val secret = "1234567890".repeat(6) + "1234"
         val digits = 8
