@@ -1,6 +1,6 @@
 package xyz.iterus.authenticator.core.totp
 
-import xyz.iterus.authenticator.core.Token
+import xyz.iterus.authenticator.core.token.Token
 import xyz.iterus.authenticator.core.hotp.HOTP
 
 class TOTPToken(

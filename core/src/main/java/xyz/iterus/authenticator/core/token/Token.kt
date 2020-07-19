@@ -1,4 +1,4 @@
-package xyz.iterus.authenticator.core
+package xyz.iterus.authenticator.core.token
 
 interface Token {
     val label: String
