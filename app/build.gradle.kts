@@ -2,7 +2,7 @@ import xyz.iterus.build.defaults.Dependencies
 
 plugins {
     id("com.android.application")
-    id("build.defaults")
+    id("build.defaults.android")
 }
 
 android {

@@ -4,7 +4,7 @@ import com.android.build.gradle.BaseExtension
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
 
-internal fun Project.configureAndroid() = this.extensions.getByType<BaseExtension>().run {
+internal fun Project.applyAndroidConfig() = this.extensions.getByType<BaseExtension>().run {
 
     compileSdkVersion(Versions.compile_sdk)
 
@@ -15,7 +15,7 @@ internal fun Project.configureAndroid() = this.extensions.getByType<BaseExtensio
         versionCode = Versions.code
         versionName = Versions.name
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = Dependencies.junit_runner
         consumerProguardFiles("consumer-rules.pro")
     }
 

@@ -1,9 +1,7 @@
 package xyz.iterus.build.defaults
 
-import org.gradle.api.Project
-import org.gradle.kotlin.dsl.dependencies
-
 object Dependencies {
+
     const val kotlin_std = "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
 
     const val koin_core = "org.koin:koin-core:${Versions.koin}"
@@ -15,6 +13,7 @@ object Dependencies {
 
     const val junit = "junit:junit:${Versions.junit}"
     const val junit_ext = "androidx.test.ext:junit:${Versions.junit_ext}"
+    const val junit_runner = "androidx.test.runner.AndroidJUnitRunner"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
     const val mockk_android = "io.mockk:mockk-android:${Versions.mockk}"
     const val espresso_core = "androidx.test.espresso:espresso-core:${Versions.espresso}"
@@ -33,26 +32,4 @@ object Dependencies {
     const val ktx_core = "androidx.core:core-ktx:${Versions.ktx_core}"
 
     const val leakcanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakcanary}"
-}
-
-
-/***
- * Applies default dependencies for every module in the project
- */
-internal fun Project.configureDependencies() = dependencies {
-    add("implementation", fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-
-    add("implementation", Dependencies.kotlin_std)
-    add("implementation", Dependencies.coroutines_core)
-    add("testImplementation", Dependencies.junit)
-    add("testImplementation", Dependencies.mockk)
-
-    if (project.containsAndroidPlugin()) {
-        add("implementation", Dependencies.ktx_core)
-        add("implementation", Dependencies.koin_android)
-        add("androidTestImplementation", Dependencies.junit_ext)
-        add("androidTestImplementation", Dependencies.mockk_android)
-    } else {
-        add("implementation", Dependencies.koin_core)
-    }
 }

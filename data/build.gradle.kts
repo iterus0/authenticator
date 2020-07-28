@@ -1,6 +1,6 @@
 plugins {
     id("com.android.library")
-    id("build.defaults")
+    id("build.defaults.android")
 }
 
 dependencies {

@@ -1,5 +1,6 @@
 plugins {
-    id("build.defaults")
+    id("org.jetbrains.kotlin.jvm")
+    id("build.defaults.kotlin")
 }
 
 java {

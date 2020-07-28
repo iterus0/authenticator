@@ -2,7 +2,7 @@ import xyz.iterus.build.defaults.Dependencies
 
 plugins {
     id("com.android.library")
-    id("build.defaults")
+    id("build.defaults.android")
     kotlin("kapt")
     kotlin("android.extensions")
 }
