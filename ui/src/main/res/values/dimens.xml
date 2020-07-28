@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- Default screen spacings, per the Android Design guidelines. -->
+    <dimen name="spacing_tiny">1dp</dimen>
+    <dimen name="spacing_smaller">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+    <dimen name="spacing_medium">24dp</dimen>
+    <dimen name="spacing_large">32dp</dimen>
+    <dimen name="spacing_huge">40dp</dimen>
+    
+    <!-- font sizes -->
+    <dimen name="font_small">8sp</dimen>
+    <dimen name="font_normal">16sp</dimen>
+    <dimen name="font_medium">24sp</dimen>
+    <dimen name="font_large">32sp</dimen>
+    <dimen name="font_huge">40sp</dimen>
+
+    <!-- typical sizes of views -->
+    <dimen name="button_height_short">32dp</dimen>
+    <dimen name="button_height_normal">40dp</dimen>
+    <dimen name="button_height_tall">60dp</dimen>
+
+    <!-- image sizes -->
+    <dimen name="image_height_short">32dp</dimen>
+    <dimen name="image_height_normal">40dp</dimen>
+    <dimen name="image_height_tall">64dp</dimen>
+
+</resources>

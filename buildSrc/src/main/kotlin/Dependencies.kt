@@ -16,11 +16,16 @@ object Dependencies {
     const val junit = "junit:junit:${Versions.junit}"
     const val junit_ext = "androidx.test.ext:junit:${Versions.junit_ext}"
     const val mockito_core = "org.mockito:mockito-core:${Versions.mockito}"
+    const val mockito_kotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockito_kotlin}"
     const val mockito_android = "org.mockito:mockito-android:${Versions.mockito}"
     const val espresso_core = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
+    const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
+    const val cardview = "androidx.cardview:cardview:${Versions.cardview}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glide_compiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
     const val nav_fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val nav_ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
@@ -39,8 +44,10 @@ internal fun Project.configureDependencies() = dependencies {
     add("implementation", fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     add("implementation", Dependencies.kotlin_std)
+    add("implementation", Dependencies.coroutines_core)
     add("testImplementation", Dependencies.junit)
     add("testImplementation", Dependencies.mockito_core)
+    add("testImplementation", Dependencies.mockito_kotlin)
 
     if (project.containsAndroidPlugin()) {
         add("implementation", Dependencies.ktx_core)

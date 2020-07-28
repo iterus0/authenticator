@@ -16,5 +16,7 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":ui"))
 
+    implementation(Dependencies.koin_viewmodel)
+
     debugImplementation(Dependencies.leakcanary)
 }

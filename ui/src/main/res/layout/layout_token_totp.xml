@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_smaller"
+    android:layout_marginStart="@dimen/spacing_smaller"
+    android:layout_marginEnd="@dimen/spacing_smaller"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp"
+    app:contentPadding="@dimen/spacing_smaller"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <include layout="@layout/layout_token" />
+
+        <ProgressBar
+            android:id="@+id/token_timer"
+            android:layout_width="@dimen/image_height_short"
+            android:layout_height="@dimen/image_height_short"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:progressDrawable="@drawable/progress_circular"
+            android:indeterminate="false"
+            android:max="600"
+            android:progress="200"
+            style="?android:attr/progressBarStyleHorizontal"
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
