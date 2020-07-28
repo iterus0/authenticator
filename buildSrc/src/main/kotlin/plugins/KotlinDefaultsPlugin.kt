@@ -1,10 +1,16 @@
 package xyz.iterus.build.defaults.plugins
 
 import org.gradle.api.Project
+import org.gradle.api.tasks.SourceSetContainer
 import org.gradle.kotlin.dsl.dependencies
 import xyz.iterus.build.defaults.Dependencies
 
 open class KotlinDefaultsPlugin: BaseBuildPlugin() {
+
+    override fun apply(project: Project) {
+        super.apply(project)
+        project.applyKotlinSources()
+    }
 
     override fun applyPlugins(project: Project) {
         project.applyKotlinPlugins()
@@ -16,6 +22,14 @@ open class KotlinDefaultsPlugin: BaseBuildPlugin() {
 
 }
 
+
+internal fun Project.applyKotlinSources() {
+    val sourceSets = extensions.getByName("sourceSets") as SourceSetContainer
+
+    sourceSets.all {
+        java.srcDir("src/$name/kotlin")
+    }
+}
 
 internal fun Project.applyKotlinPlugins() {
     plugins.apply("org.jetbrains.kotlin.jvm")

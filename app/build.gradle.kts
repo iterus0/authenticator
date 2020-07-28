@@ -5,11 +5,10 @@ plugins {
     id("build.defaults.android")
 }
 
-android {
-    defaultConfig {
-        applicationId = "xyz.iterus.authenticator"
-    }
+android.defaultConfig {
+    applicationId = "xyz.iterus.authenticator"
 }
+
 
 dependencies {
     implementation(project(":core"))

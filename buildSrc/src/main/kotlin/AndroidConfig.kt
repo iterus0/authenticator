@@ -21,6 +21,7 @@ internal fun Project.applyAndroidConfig() = this.extensions.getByType<BaseExtens
 
     buildTypes {
         getByName("debug") {
+            isDebuggable = true
             isMinifyEnabled = false
             versionNameSuffix = "-debug"
         }
@@ -29,5 +30,9 @@ internal fun Project.applyAndroidConfig() = this.extensions.getByType<BaseExtens
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
+    }
+
+    sourceSets.all {
+        java.srcDir("src/$name/kotlin")
     }
 }

@@ -3,6 +3,7 @@ package xyz.iterus.build.defaults.plugins
 import com.android.build.gradle.api.AndroidBasePlugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.hasPlugin
 import xyz.iterus.build.defaults.Dependencies
 import xyz.iterus.build.defaults.applyAndroidConfig
 
@@ -13,7 +14,7 @@ open class AndroidDefaultsPlugin: KotlinDefaultsPlugin() {
             project.applyAndroidConfig()
             super.apply(project)
         } else {
-            //logger.warn("This plugin is applied to a non-android module")
+            project.logger.warn("${this@AndroidDefaultsPlugin::class.simpleName} is applied to a non-android module: ${project.name}")
         }
     }
 
@@ -28,9 +29,7 @@ open class AndroidDefaultsPlugin: KotlinDefaultsPlugin() {
 }
 
 
-internal fun Project.containsAndroidPlugin(): Boolean {
-    return project.plugins.toList().any { plugin -> plugin is AndroidBasePlugin }
-}
+internal fun Project.containsAndroidPlugin(): Boolean = plugins.hasPlugin(AndroidBasePlugin::class)
 
 internal fun Project.applyAndroidPlugins() {
     plugins.apply("org.jetbrains.kotlin.android")
