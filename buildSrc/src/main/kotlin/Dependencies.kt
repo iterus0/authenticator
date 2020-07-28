@@ -15,9 +15,8 @@ object Dependencies {
 
     const val junit = "junit:junit:${Versions.junit}"
     const val junit_ext = "androidx.test.ext:junit:${Versions.junit_ext}"
-    const val mockito_core = "org.mockito:mockito-core:${Versions.mockito}"
-    const val mockito_kotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockito_kotlin}"
-    const val mockito_android = "org.mockito:mockito-android:${Versions.mockito}"
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val mockk_android = "io.mockk:mockk-android:${Versions.mockk}"
     const val espresso_core = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
@@ -46,14 +45,13 @@ internal fun Project.configureDependencies() = dependencies {
     add("implementation", Dependencies.kotlin_std)
     add("implementation", Dependencies.coroutines_core)
     add("testImplementation", Dependencies.junit)
-    add("testImplementation", Dependencies.mockito_core)
-    add("testImplementation", Dependencies.mockito_kotlin)
+    add("testImplementation", Dependencies.mockk)
 
     if (project.containsAndroidPlugin()) {
         add("implementation", Dependencies.ktx_core)
         add("implementation", Dependencies.koin_android)
         add("androidTestImplementation", Dependencies.junit_ext)
-        add("androidTestImplementation", Dependencies.mockito_android)
+        add("androidTestImplementation", Dependencies.mockk_android)
     } else {
         add("implementation", Dependencies.koin_core)
     }

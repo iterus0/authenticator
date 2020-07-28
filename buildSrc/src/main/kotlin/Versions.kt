@@ -24,8 +24,7 @@ object Versions {
     const val ktx_core = "1.3.1"
     const val junit = "4.13"
     const val junit_ext = "1.1.1"
-    const val mockito = "3.4.4"
-    const val mockito_kotlin = "2.2.0"
+    const val mockk = "1.10.0"
     const val espresso = "3.2.0"
     const val leakcanary = "2.4"
 }
