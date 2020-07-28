@@ -1,6 +1,5 @@
 package xyz.iterus.build.defaults
 
-import com.android.build.gradle.api.AndroidBasePlugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
@@ -23,6 +22,10 @@ object Dependencies {
 
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
+    const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
+    const val cardview = "androidx.cardview:cardview:${Versions.cardview}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glide_compiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
     const val nav_fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val nav_ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val lifecycle_ext = "android.arch.lifecycle:extensions:${Versions.lifecycle}"
@@ -43,6 +46,7 @@ internal fun Project.configureDependencies() = dependencies {
     add("implementation", Dependencies.coroutines_core)
     add("testImplementation", Dependencies.junit)
     add("testImplementation", Dependencies.mockito_core)
+    add("testImplementation", Dependencies.mockito_kotlin)
 
     if (project.containsAndroidPlugin()) {
         add("implementation", Dependencies.ktx_core)
