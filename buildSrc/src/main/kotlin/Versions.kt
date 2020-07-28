@@ -13,7 +13,7 @@ object Versions {
 
     // deps
     const val koin = "2.1.6"
-    const val coroutines = "1.3.7"
+    const val coroutines = "1.3.8"
     const val appcompat = "1.1.0"
     const val constraintlayout = "1.1.3"
     const val recyclerview = "1.1.0"
@@ -21,10 +21,10 @@ object Versions {
     const val glide = "4.11.0"
     const val navigation = "2.3.0"
     const val lifecycle = "2.2.0"
-    const val ktx_core = "1.3.0"
+    const val ktx_core = "1.3.1"
     const val junit = "4.13"
     const val junit_ext = "1.1.1"
-    const val mockito = "3.4.0"
+    const val mockito = "3.4.4"
     const val mockito_kotlin = "2.2.0"
     const val espresso = "3.2.0"
     const val leakcanary = "2.4"
