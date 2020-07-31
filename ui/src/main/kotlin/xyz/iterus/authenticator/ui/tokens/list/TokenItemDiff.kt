@@ -4,15 +4,9 @@ import androidx.recyclerview.widget.DiffUtil
 import xyz.iterus.authenticator.core.token.Token
 import xyz.iterus.authenticator.core.token.totp.TOTPToken
 
-class TokenItemDiff(
-    private val oldTokens: List<Token>,
-    private val newTokens: List<Token>
-): DiffUtil.Callback() {
+class TokenItemDiff: DiffUtil.ItemCallback<Token>() {
 
-    override fun areContentsTheSame(oldPos: Int, newPos: Int): Boolean {
-        val oldToken = oldTokens[oldPos]
-        val newToken = newTokens[newPos]
-
+    override fun areContentsTheSame(oldToken: Token, newToken: Token): Boolean {
         if (oldToken != newToken)
             return false
 
@@ -23,10 +17,6 @@ class TokenItemDiff(
         }
     }
 
-    override fun areItemsTheSame(oldPos: Int, newPos: Int): Boolean =
-        (oldTokens[oldPos].id == newTokens[newPos].id)
-
-    override fun getOldListSize(): Int = oldTokens.size
-
-    override fun getNewListSize(): Int = newTokens.size
+    override fun areItemsTheSame(oldToken: Token, newToken: Token): Boolean =
+        (oldToken.id == newToken.id)
 }

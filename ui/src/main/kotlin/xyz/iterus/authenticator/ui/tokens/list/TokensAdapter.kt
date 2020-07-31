@@ -2,7 +2,7 @@ package xyz.iterus.authenticator.ui.tokens.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
 import xyz.iterus.authenticator.core.token.hotp.HOTPToken
 import xyz.iterus.authenticator.core.token.Token
@@ -11,23 +11,20 @@ import xyz.iterus.authenticator.ui.R
 
 class TokensAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var tokens = listOf<Token>()
-
-    fun submitList(newTokens: List<Token>) {
-        val diffResult = DiffUtil.calculateDiff( TokenItemDiff(tokens, newTokens) )
-        tokens = newTokens
-        diffResult.dispatchUpdatesTo(this)
-    }
-
-
     enum class ViewType(val value: Int) {
         HOTP(0), TOTP(1)
     }
 
-    override fun getItemViewType(position: Int): Int = when(tokens[position]) {
+    private val diff = AsyncListDiffer(this, TokenItemDiff())
+
+    fun submitList(tokens: List<Token>) {
+        diff.submitList(tokens)
+    }
+
+    override fun getItemViewType(position: Int): Int = when(diff.currentList[position]) {
         is HOTPToken -> ViewType.HOTP.value
         is TOTPToken -> ViewType.TOTP.value
-        else -> TODO("ViewType for ${tokens[position]}")
+        else -> TODO("ViewType for pos=${position}")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder = when(viewType) {
@@ -43,7 +40,7 @@ class TokensAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val token = tokens[position]
+        val token = diff.currentList[position]
 
         when (holder) {
             is HOTPViewHolder -> if (token is HOTPToken) { holder.bind(token) } else { onBindingError(holder, token) }
@@ -54,7 +51,7 @@ class TokensAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    override fun getItemCount(): Int = tokens.size
+    override fun getItemCount(): Int = diff.currentList.size
 
 
     private fun onBindingError(holder: RecyclerView.ViewHolder, token: Token) {

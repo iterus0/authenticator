@@ -4,7 +4,7 @@ import com.android.build.gradle.BaseExtension
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
 
-internal fun Project.applyAndroidConfig() = this.extensions.getByType<BaseExtension>().run {
+internal fun Project.applyAndroidConfig() = extensions.getByType<BaseExtension>().run {
 
     compileSdkVersion(Versions.compile_sdk)
 
