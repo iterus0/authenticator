@@ -3,11 +3,20 @@ package xyz.iterus.authenticator.ui.tokens.list
 import android.animation.ObjectAnimator
 import android.view.View
 import kotlinx.android.synthetic.main.layout_token_totp.view.*
+import xyz.iterus.authenticator.core.token.Token
 import xyz.iterus.authenticator.core.token.totp.TOTPToken
 
 class TOTPViewHolder(itemView: View): TokenViewHolder(itemView) {
 
-    fun bind(token: TOTPToken) {
+    override fun bind(token: Token) {
+        super.bind(token)
+
+        if (token is TOTPToken) {
+            bind(token)
+        }
+    }
+
+    private fun bind(token: TOTPToken) {
         super.bind(token)
 
         // animate expiration timer

@@ -9,7 +9,7 @@ import xyz.iterus.authenticator.core.token.Token
 import xyz.iterus.authenticator.core.token.totp.TOTPToken
 import xyz.iterus.authenticator.ui.R
 
-class TokensAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class TokensAdapter: RecyclerView.Adapter<TokenViewHolder>() {
 
     enum class ViewType(val value: Int) {
         HOTP(0), TOTP(1)
@@ -21,40 +21,26 @@ class TokensAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         diff.submitList(tokens)
     }
 
-    override fun getItemViewType(position: Int): Int = when(diff.currentList[position]) {
+    override fun getItemViewType(position: Int): Int = when (val token = diff.currentList[position]) {
         is HOTPToken -> ViewType.HOTP.value
         is TOTPToken -> ViewType.TOTP.value
-        else -> TODO("ViewType for pos=${position}")
+        else -> throw NotImplementedError("ViewType for $token")
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder = when(viewType) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TokenViewHolder = when (viewType) {
         ViewType.HOTP.value -> HOTPViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.layout_token_hotp, parent, false)
         )
-
         ViewType.TOTP.value -> TOTPViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.layout_token_totp, parent, false)
         )
-
-        else -> TODO("ViewType with value=$viewType")
+        else -> throw NotImplementedError("ViewType with value=$viewType")
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TokenViewHolder, position: Int) {
         val token = diff.currentList[position]
-
-        when (holder) {
-            is HOTPViewHolder -> if (token is HOTPToken) { holder.bind(token) } else { onBindingError(holder, token) }
-
-            is TOTPViewHolder -> if (token is TOTPToken) { holder.bind(token) } else { onBindingError(holder, token) }
-
-            else -> TODO("viewHolder bind for $holder")
-        }
+        holder.bind(token)
     }
 
     override fun getItemCount(): Int = diff.currentList.size
-
-
-    private fun onBindingError(holder: RecyclerView.ViewHolder, token: Token) {
-        throw IllegalArgumentException("Can't bind ${token.javaClass.simpleName} with ${holder.javaClass.simpleName}")
-    }
 }

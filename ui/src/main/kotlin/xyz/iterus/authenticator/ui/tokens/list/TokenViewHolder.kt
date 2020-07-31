@@ -9,7 +9,7 @@ import xyz.iterus.authenticator.ui.R
 
 open class TokenViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-    fun bind(token: Token) {
+    open fun bind(token: Token) {
         itemView.token_label.text = token.label
         itemView.token.text = token.getToken()
 
