@@ -1,6 +1,7 @@
 package xyz.iterus.build.defaults
 
 import com.android.build.gradle.BaseExtension
+import kotlin.run
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
 
