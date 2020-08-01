@@ -16,7 +16,6 @@ internal fun Project.applyAndroidConfig() = extensions.getByType<BaseExtension>(
         versionName = Versions.name
 
         testInstrumentationRunner = Dependencies.junit_runner
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {

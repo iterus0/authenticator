@@ -8,19 +8,11 @@ plugins {
 }
 
 dependencies {
-    implementation(Dependencies.coroutines_android)
-    implementation(Dependencies.koin_viewmodel)
-
-    implementation(Dependencies.lifecycle_viewmodel)
-    implementation(Dependencies.lifecycle_livedata)
-    kapt(Dependencies.lifecycle_compiler)
+    implementation(project(":library_base"))
 
     implementation(Dependencies.recyclerview)
     implementation(Dependencies.cardview)
 
     implementation(Dependencies.glide)
     kapt(Dependencies.glide_compiler)
-
-
-    androidTestImplementation(Dependencies.espresso_core)
 }
