@@ -40,4 +40,9 @@ internal fun Project.applyAndroidDependencies() = dependencies {
     add("implementation", Dependencies.koin_android)
     add("androidTestImplementation", Dependencies.junit_ext)
     add("androidTestImplementation", Dependencies.mockk_android)
+
+    add("implementation", Dependencies.constraintlayout)
+
+    add("implementation", Dependencies.nav_fragment)
+    add("implementation", Dependencies.nav_ui)
 }

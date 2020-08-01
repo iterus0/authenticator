@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+False positive:
+https://issuetracker.google.com/issues/134078644
+-->
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/featureTokenNavGraph"
+    app:startDestination="@id/tokensFragment"
+    >
+
+    <fragment
+        android:id="@+id/tokensFragment"
+        android:name="xyz.iterus.authenticator.feature.token.presentation.TokensFragment"
+        android:label="TokensFragment"
+        >
+
+    </fragment>
+
+</navigation>

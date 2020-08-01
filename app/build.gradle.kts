@@ -11,11 +11,9 @@ android.defaultConfig {
 
 
 dependencies {
-    implementation(project(":core"))
-    implementation(project(":data"))
-    implementation(project(":ui"))
+    implementation(project(":feature_token"))
 
-    implementation(Dependencies.koin_viewmodel)
+    implementation(Dependencies.appcompat)
 
     debugImplementation(Dependencies.leakcanary)
 }
