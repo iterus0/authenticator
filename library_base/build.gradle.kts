@@ -1,4 +1,4 @@
-import xyz.iterus.build.defaults.Dependencies
+import xyz.iterus.build.defaults.dependencies.*
 
 plugins {
     id("com.android.library")
@@ -7,20 +7,20 @@ plugins {
 }
 
 dependencies {
-    api(Dependencies.kotlin_std)
-    api(Dependencies.coroutines_core)
-    api(Dependencies.coroutines_android)
+    api(CoreDependencies.kotlin_std)
+    api(CoreDependencies.coroutines_core)
+    api(CoreDependencies.coroutines_android)
 
-    api(Dependencies.koin_core)
-    api(Dependencies.koin_viewmodel)
+    api(CoreDependencies.koin_core)
+    api(CoreDependencies.koin_viewmodel)
 
-    api(Dependencies.lifecycle_viewmodel)
-    api(Dependencies.lifecycle_livedata)
-    kapt(Dependencies.lifecycle_compiler)
+    api(JetpackDependencies.lifecycle_viewmodel)
+    api(JetpackDependencies.lifecycle_livedata)
+    kapt(JetpackDependencies.lifecycle_compiler)
 
-    api(Dependencies.constraintlayout)
-    api(Dependencies.nav_fragment)
-    api(Dependencies.nav_ui)
+    api(JetpackDependencies.constraintlayout)
+    api(JetpackDependencies.nav_fragment)
+    api(JetpackDependencies.nav_ui)
 
-    api(Dependencies.ktx_core)
+    api(JetpackDependencies.ktx_core)
 }

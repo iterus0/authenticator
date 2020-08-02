@@ -1,4 +1,4 @@
-import xyz.iterus.build.defaults.Dependencies
+import xyz.iterus.build.defaults.dependencies.*
 
 plugins {
     id("com.android.library")
@@ -9,9 +9,9 @@ plugins {
 dependencies {
     implementation(project(":library_base"))
 
-    implementation(Dependencies.recyclerview)
-    implementation(Dependencies.cardview)
+    implementation(JetpackDependencies.recyclerview)
+    implementation(JetpackDependencies.cardview)
 
-    implementation(Dependencies.glide)
-    kapt(Dependencies.glide_compiler)
+    implementation(MediaDependencies.glide)
+    kapt(MediaDependencies.glide_compiler)
 }

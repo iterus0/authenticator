@@ -6,6 +6,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.hasPlugin
+import xyz.iterus.build.defaults.dependencies.TestDependencies
 
 internal class AndroidDefaultsPlugin: Plugin<Project> {
 
@@ -32,9 +33,9 @@ Can't apply test dependencies in library_base,
 because there is no testApi() function, like api()
  */
 internal fun Project.applyTestDependencies() = dependencies {
-    add("testImplementation", Dependencies.junit)
-    add("androidTestImplementation", Dependencies.junit_ext)
-    add("testImplementation", Dependencies.mockk)
-    add("androidTestImplementation", Dependencies.mockk_android)
-    add("androidTestImplementation", Dependencies.espresso_core)
+    add("testImplementation", TestDependencies.junit)
+    add("androidTestImplementation", TestDependencies.junit_ext)
+    add("testImplementation", TestDependencies.mockk)
+    add("androidTestImplementation", TestDependencies.mockk_android)
+    add("androidTestImplementation", TestDependencies.espresso_core)
 }

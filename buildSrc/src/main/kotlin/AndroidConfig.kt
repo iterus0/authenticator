@@ -4,6 +4,7 @@ import com.android.build.gradle.BaseExtension
 import kotlin.run
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
+import xyz.iterus.build.defaults.dependencies.TestDependencies
 
 internal fun Project.applyAndroidConfig() = extensions.getByType<BaseExtension>().run {
 
@@ -16,7 +17,7 @@ internal fun Project.applyAndroidConfig() = extensions.getByType<BaseExtension>(
         versionCode = Versions.code
         versionName = Versions.name
 
-        testInstrumentationRunner = Dependencies.junit_runner
+        testInstrumentationRunner = TestDependencies.junit_runner
     }
 
     buildTypes {

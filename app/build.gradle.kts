@@ -1,4 +1,4 @@
-import xyz.iterus.build.defaults.Dependencies
+import xyz.iterus.build.defaults.dependencies.*
 
 plugins {
     id("com.android.application")
@@ -14,9 +14,9 @@ dependencies {
     implementation(project(":library_base"))
     implementation(project(":feature_token"))
 
-    implementation(Dependencies.koin_android)
+    implementation(CoreDependencies.koin_android)
 
-    implementation(Dependencies.appcompat)
+    implementation(JetpackDependencies.appcompat)
 
-    debugImplementation(Dependencies.leakcanary)
+    debugImplementation(DebugDependencies.leakcanary)
 }
