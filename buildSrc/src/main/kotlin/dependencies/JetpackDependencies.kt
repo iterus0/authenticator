@@ -3,7 +3,7 @@ package xyz.iterus.build.defaults.dependencies
 object JetpackDependencies {
 
     private object Versions {
-        const val appcompat = "1.1.0"
+        const val appcompat = "1.2.0"
         const val constraintlayout = "1.1.3"
         const val recyclerview = "1.1.0"
         const val cardview = "1.0.0"
