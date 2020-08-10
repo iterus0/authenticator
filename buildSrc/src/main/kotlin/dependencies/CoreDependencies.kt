@@ -2,7 +2,7 @@ package xyz.iterus.build.defaults.dependencies
 
 object CoreDependencies {
 
-    private object Versions {
+    internal object Versions {
         const val koin = "2.1.6"
         const val coroutines = "1.3.8"
     }

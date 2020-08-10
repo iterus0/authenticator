@@ -2,13 +2,23 @@ package xyz.iterus.authenticator.feature.token.domain
 
 import org.junit.Test
 import org.junit.Assert.*
-import xyz.iterus.authenticator.feature.token.domain.model.hotp.HOTP
+import org.junit.Rule
+import org.koin.test.KoinTest
+import org.koin.test.KoinTestRule
+import org.koin.test.inject
+import xyz.iterus.authenticator.feature.token.di.TokensModule
 import xyz.iterus.authenticator.feature.token.domain.model.hotp.HOTP.HashAlgorithm
 import xyz.iterus.authenticator.feature.token.domain.model.hotp.RFC4226
 
-class RFC4226Test {
+class RFC4226Test: KoinTest {
 
-    private val hotp: HOTP = RFC4226()
+    private val hotp: RFC4226 by inject()
+
+    @get:Rule
+    val koinTestRule = KoinTestRule.create {
+        printLogger()
+        modules(TokensModule.module)
+    }
 
     // https://tools.ietf.org/html/rfc4226#appendix-D
     @Test

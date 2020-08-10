@@ -14,5 +14,6 @@ object TestDependencies {
     const val junit_runner = "androidx.test.runner.AndroidJUnitRunner"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
     const val mockk_android = "io.mockk:mockk-android:${Versions.mockk}"
+    const val koin_test = "org.koin:koin-test:${CoreDependencies.Versions.koin}"
     const val espresso_core = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 }

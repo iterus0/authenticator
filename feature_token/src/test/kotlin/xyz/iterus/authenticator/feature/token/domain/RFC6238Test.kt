@@ -2,14 +2,23 @@ package xyz.iterus.authenticator.feature.token.domain
 
 import org.junit.Test
 import org.junit.Assert.*
+import org.junit.Rule
+import org.koin.test.KoinTest
+import org.koin.test.KoinTestRule
+import org.koin.test.inject
+import xyz.iterus.authenticator.feature.token.di.TokensModule
 import xyz.iterus.authenticator.feature.token.domain.model.hotp.HOTP.HashAlgorithm
-import xyz.iterus.authenticator.feature.token.domain.model.hotp.RFC4226
 import xyz.iterus.authenticator.feature.token.domain.model.totp.RFC6238
-import xyz.iterus.authenticator.feature.token.domain.model.totp.TOTP
 
-class RFC6238Test {
+class RFC6238Test: KoinTest {
 
-    private val totp: TOTP = RFC6238(RFC4226())
+    private val totp: RFC6238 by inject()
+
+    @get:Rule
+    val koinTestRule = KoinTestRule.create {
+        printLogger()
+        modules(TokensModule.module)
+    }
 
     // https://tools.ietf.org/html/rfc6238.html#appendix-B
     @Test

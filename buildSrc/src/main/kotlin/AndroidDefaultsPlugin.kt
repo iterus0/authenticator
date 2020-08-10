@@ -43,6 +43,7 @@ because there is no testApi() function, like api()
 internal fun Project.applyTestDependencies() = dependencies {
     add("testImplementation", TestDependencies.junit)
     add("androidTestImplementation", TestDependencies.junit_ext)
+    add("testImplementation", TestDependencies.koin_test)
     add("testImplementation", TestDependencies.mockk)
     add("androidTestImplementation", TestDependencies.mockk_android)
     add("androidTestImplementation", TestDependencies.espresso_core)
