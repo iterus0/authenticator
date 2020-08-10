@@ -6,6 +6,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.hasPlugin
+import org.gradle.kotlin.dsl.project
 import xyz.iterus.build.defaults.dependencies.TestDependencies
 
 internal class AndroidDefaultsPlugin: Plugin<Project> {
@@ -14,6 +15,7 @@ internal class AndroidDefaultsPlugin: Plugin<Project> {
         if (containsAndroidPlugin()) {
             applyAndroidConfig()
             applyAndroidPlugins()
+            applyBaseDependencies()
             applyTestDependencies()
         } else {
             logger.warn("${this@AndroidDefaultsPlugin::class.simpleName} is applied to a non-android module: $name")
@@ -26,6 +28,12 @@ internal fun Project.containsAndroidPlugin(): Boolean = plugins.hasPlugin(Androi
 internal fun Project.applyAndroidPlugins() {
     plugins.apply("org.jetbrains.kotlin.android")
     plugins.apply("org.jetbrains.kotlin.android.extensions")
+}
+
+internal fun Project.applyBaseDependencies() = dependencies {
+    if (!name.contains("library")) {
+        add("implementation", dependencies.project(":library_base"))
+    }
 }
 
 /*

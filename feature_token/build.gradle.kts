@@ -7,8 +7,6 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":library_base"))
-
     implementation(JetpackDependencies.recyclerview)
     implementation(JetpackDependencies.cardview)
 
