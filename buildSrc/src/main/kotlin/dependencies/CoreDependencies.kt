@@ -4,7 +4,7 @@ object CoreDependencies {
 
     internal object Versions {
         const val koin = "2.1.6"
-        const val coroutines = "1.3.8"
+        const val coroutines = "1.3.9"
     }
 
     const val kotlin_std = "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
