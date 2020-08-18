@@ -3,6 +3,7 @@ package xyz.iterus.authenticator.feature.token.domain
 import org.junit.Test
 import org.junit.Assert.*
 import org.junit.Rule
+import org.koin.core.logger.Level
 import org.koin.test.KoinTest
 import org.koin.test.KoinTestRule
 import org.koin.test.inject
@@ -16,7 +17,8 @@ class RFC4226Test: KoinTest {
 
     @get:Rule
     val koinTestRule = KoinTestRule.create {
-        printLogger()
+        // Workaround for: https://github.com/InsertKoinIO/koin/issues/847
+        printLogger(Level.ERROR)
         modules(TokensModule.module)
     }
 
