@@ -14,7 +14,7 @@ internal data class TOTPToken(
     val alg: HOTP.HashAlgorithm = HOTP.HashAlgorithm.SHA1
 ): Token {
 
-    private val periodMs = period * 1000
+    private val periodMs = period * 1000L
 
 
     override fun getToken(): String {
