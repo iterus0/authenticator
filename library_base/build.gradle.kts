@@ -18,6 +18,7 @@ dependencies {
     api(JetpackDependencies.lifecycle_livedata)
     kapt(JetpackDependencies.lifecycle_compiler)
 
+    api(JetpackDependencies.fragment)
     api(JetpackDependencies.constraintlayout)
     api(JetpackDependencies.nav_fragment)
     api(JetpackDependencies.nav_ui)

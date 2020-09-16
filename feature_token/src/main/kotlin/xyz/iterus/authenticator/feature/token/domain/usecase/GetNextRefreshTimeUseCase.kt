@@ -11,6 +11,6 @@ class GetNextRefreshTimeUseCase {
         tokens
             .filterIsInstance<TOTPToken>()
             .map { it.getRemainingTimeMs() }
-            .min()
+            .minOrNull()
     }
 }

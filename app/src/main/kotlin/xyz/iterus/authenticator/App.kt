@@ -12,6 +12,7 @@ import xyz.iterus.authenticator.di.koinModules
 False positive "Unused symbol" for a custom Android application class referenced in AndroidManifest.xml file:
 https://youtrack.jetbrains.net/issue/KT-27971
 */
+@Suppress("unused")
 class App: Application() {
 
     override fun onCreate() {

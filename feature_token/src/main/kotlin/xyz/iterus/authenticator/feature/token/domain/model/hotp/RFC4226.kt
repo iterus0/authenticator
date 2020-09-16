@@ -14,13 +14,12 @@ internal class RFC4226: HOTP {
         val hmac = generateHmac(algorithm, secret.toByteArray(), counter.toByteArray())
 
         val offset = hmac.last().toInt() and 0xF
-        val otp = hmac.slice(offset..offset+3)
+
+        return hmac.slice(offset..offset+3)
             .map { it.toInt() }
             .mapIndexed { idx, it -> if (idx == 0) (it and 0x7F) else (it and 0xFF) }
             .asReversed().mapIndexed { idx, it -> it shl 8*idx }
             .reduce { acc, it -> acc or it }
-
-        return otp
     }
 
     private fun generateHmac(algorithm: HOTP.HashAlgorithm, secret: ByteArray, data: ByteArray): ByteArray {

@@ -4,6 +4,7 @@ object JetpackDependencies {
 
     private object Versions {
         const val appcompat = "1.2.0"
+        const val fragment = "1.2.5"
         const val constraintlayout = "1.1.3"
         const val recyclerview = "1.1.0"
         const val cardview = "1.0.0"
@@ -13,6 +14,7 @@ object JetpackDependencies {
     }
 
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+    const val fragment = "androidx.fragment:fragment:${Versions.fragment}"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
     const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     const val cardview = "androidx.cardview:cardview:${Versions.cardview}"

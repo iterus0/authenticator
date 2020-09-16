@@ -30,15 +30,15 @@ class RFC4226Test: KoinTest {
         val digits = 6
         val alg = HashAlgorithm.SHA1
 
-        val expected_otp = listOf("755224", "287082", "359152", "969429", "338314",
+        val expectedOtp = listOf("755224", "287082", "359152", "969429", "338314",
                                   "254676", "287922", "162583", "399871", "520489")
-        val count = 0L until expected_otp.size
+        val count = 0L until expectedOtp.size
 
         // WHEN
         val otp = count.map { counter -> hotp.generateOTP(secret, counter, digits, alg) }
 
         // THEN
-        assertEquals(expected_otp, otp)
+        assertEquals(expectedOtp, otp)
     }
 
     @Test
@@ -48,15 +48,15 @@ class RFC4226Test: KoinTest {
         val digits = 8
         val alg = HashAlgorithm.SHA1
 
-        val expected_otp = listOf("84755224", "94287082", "37359152", "26969429", "40338314",
+        val expectedOtp = listOf("84755224", "94287082", "37359152", "26969429", "40338314",
                                   "68254676", "18287922", "82162583", "73399871", "45520489")
-        val count = 0L until expected_otp.size
+        val count = 0L until expectedOtp.size
 
         // WHEN
         val otp = count.map { counter -> hotp.generateOTP(secret, counter, digits, alg) }
 
         // THEN
-        assertEquals(expected_otp, otp)
+        assertEquals(expectedOtp, otp)
     }
 
     @Test
@@ -67,15 +67,15 @@ class RFC4226Test: KoinTest {
         val alg = HashAlgorithm.SHA1
         val counter = 754L
 
-        val expected_otp = listOf("346918", "221452", "873973", "635076",
+        val expectedOtp = listOf("346918", "221452", "873973", "635076",
                                   "712384", "380974", "359347", "517065")
-        val countRange = counter until counter+expected_otp.size
+        val countRange = counter until counter+expectedOtp.size
 
         // WHEN
         val otp = countRange.map { c -> hotp.generateOTP(secret, c, digits, alg) }
 
         // THEN
-        assertEquals(expected_otp, otp)
+        assertEquals(expectedOtp, otp)
     }
 
     @Test
@@ -85,15 +85,15 @@ class RFC4226Test: KoinTest {
         val digits = 6
         val alg = HashAlgorithm.SHA256
 
-        val expected_otp = listOf("273337", "030793", "294170", "018203",
+        val expectedOtp = listOf("273337", "030793", "294170", "018203",
                                   "769062", "439312", "643186", "748212")
-        val count = 0L until expected_otp.size
+        val count = 0L until expectedOtp.size
 
         // WHEN
         val otp = count.map { counter -> hotp.generateOTP(secret, counter, digits, alg) }
 
         // THEN
-        assertEquals(expected_otp, otp)
+        assertEquals(expectedOtp, otp)
     }
 
     @Test
@@ -103,14 +103,14 @@ class RFC4226Test: KoinTest {
         val digits = 6
         val alg = HashAlgorithm.SHA512
 
-        val expected_otp = listOf("219463", "941555", "254677", "660247",
+        val expectedOtp = listOf("219463", "941555", "254677", "660247",
                                   "401413", "955362", "511074", "983955")
-        val count = 0L until expected_otp.size
+        val count = 0L until expectedOtp.size
 
         // WHEN
         val otp = count.map { counter -> hotp.generateOTP(secret, counter, digits, alg) }
 
         // THEN
-        assertEquals(expected_otp, otp)
+        assertEquals(expectedOtp, otp)
     }
 }
