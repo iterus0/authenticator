@@ -6,7 +6,7 @@ interface HOTP {
         SHA1, SHA256, SHA512
     }
 
-    fun generateOTP(secret: String, counter: Long, digits: Int, algorithm: HashAlgorithm): String
+    fun generate(secret: String, counter: Long, digits: Int, algorithm: HashAlgorithm): String
 
-    fun generateOTPNumber(secret: String, counter: Long, digits: Int, algorithm: HashAlgorithm): Int
+    fun generateNumber(secret: String, counter: Long, digits: Int, algorithm: HashAlgorithm): Int
 }

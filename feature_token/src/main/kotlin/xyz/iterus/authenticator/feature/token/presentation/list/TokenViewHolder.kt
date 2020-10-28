@@ -3,7 +3,7 @@ package xyz.iterus.authenticator.feature.token.presentation.list
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.layout_token.view.*
+import kotlinx.android.synthetic.main.layout_token_base.view.*
 import xyz.iterus.authenticator.feature.token.R
 import xyz.iterus.authenticator.feature.token.domain.model.Token
 

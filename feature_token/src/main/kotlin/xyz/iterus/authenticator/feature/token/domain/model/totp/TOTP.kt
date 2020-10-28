@@ -4,7 +4,7 @@ import xyz.iterus.authenticator.feature.token.domain.model.hotp.HOTP
 
 interface TOTP {
 
-    fun generateOTP(secret: String, time: Long, period: Int, digits: Int, alg: HOTP.HashAlgorithm): String
+    fun generate(secret: String, time: Long, period: Int, digits: Int, alg: HOTP.HashAlgorithm): String
 
-    fun generateOTPNumber(secret: String, time: Long, period: Int, digits: Int, alg: HOTP.HashAlgorithm): Int
+    fun generateNumber(secret: String, time: Long, period: Int, digits: Int, alg: HOTP.HashAlgorithm): Int
 }

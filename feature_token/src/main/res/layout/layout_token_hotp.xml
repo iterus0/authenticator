@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         >
 
-        <include layout="@layout/layout_token" />
+        <include layout="@layout/layout_token_base" />
 
         <TextView
             android:id="@+id/token_counter"

@@ -19,7 +19,7 @@ internal data class TOTPToken(
 
     override fun getToken(): String {
         val currentTime = System.currentTimeMillis() / 1000
-        return totp.generateOTP(secret, currentTime, period, digits, alg)
+        return totp.generate(secret, currentTime, period, digits, alg)
     }
 
 

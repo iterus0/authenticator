@@ -39,7 +39,7 @@ class RFC6238Test: KoinTest {
                20000000000L to "65353130")
 
         for ((time, expected_otp) in ref) {
-            val otp = totp.generateOTP(secret, time, period, digits, alg)
+            val otp = totp.generate(secret, time, period, digits, alg)
             assertEquals(expected_otp, otp)
         }
     }
@@ -61,7 +61,7 @@ class RFC6238Test: KoinTest {
                20000000000L to "77737706")
 
         for ((time, expected_otp) in ref) {
-            val otp = totp.generateOTP(secret, time, period, digits, alg)
+            val otp = totp.generate(secret, time, period, digits, alg)
             assertEquals(expected_otp, otp)
         }
     }
@@ -83,7 +83,7 @@ class RFC6238Test: KoinTest {
                20000000000L to "47863826")
 
         for ((time, expected_otp) in ref) {
-            val otp = totp.generateOTP(secret, time, period, digits, alg)
+            val otp = totp.generate(secret, time, period, digits, alg)
             assertEquals(expected_otp, otp)
         }
     }
