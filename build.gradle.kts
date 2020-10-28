@@ -12,8 +12,10 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:4.0.1")
-        classpath(kotlin("gradle-plugin", version = "1.4.0"))
+        // Can't use imports inside buildScript block:
+        // https://github.com/gradle/kotlin-dsl-samples/issues/1291
+        classpath(xyz.iterus.build.defaults.dependencies.BuildDependencies.android_gradle_plugin)
+        classpath(xyz.iterus.build.defaults.dependencies.BuildDependencies.kotlin_gradle_plugin)
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle.kts files

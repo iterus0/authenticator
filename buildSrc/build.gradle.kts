@@ -22,5 +22,6 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation("com.android.tools.build:gradle:4.0.1")
+    // https://github.com/gradle/kotlin-dsl-samples/issues/1320
+    implementation("com.android.tools.build:gradle:4.1.0")
 }
