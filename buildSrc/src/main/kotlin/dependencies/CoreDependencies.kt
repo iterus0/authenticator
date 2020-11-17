@@ -4,7 +4,7 @@ object CoreDependencies {
 
     internal object Versions {
         const val kotlin = "1.4.10"
-        const val koin = "2.1.6"
+        const val koin = "2.2.1"
         const val coroutines = "1.4.1"
     }
 
