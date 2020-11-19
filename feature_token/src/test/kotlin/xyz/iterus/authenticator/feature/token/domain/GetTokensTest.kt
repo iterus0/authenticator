@@ -7,7 +7,6 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Rule
 import org.junit.Test
 import org.junit.Assert.assertEquals
-import org.koin.core.logger.Level
 import org.koin.test.KoinTest
 import org.koin.test.KoinTestRule
 import org.koin.test.inject
@@ -30,8 +29,7 @@ class GetTokensTest: KoinTest {
 
     @get:Rule
     val koinTestRule = KoinTestRule.create {
-        // Workaround for: https://github.com/InsertKoinIO/koin/issues/847
-        printLogger(Level.ERROR)
+        printLogger()
         modules(TokensModule.module)
     }
 
