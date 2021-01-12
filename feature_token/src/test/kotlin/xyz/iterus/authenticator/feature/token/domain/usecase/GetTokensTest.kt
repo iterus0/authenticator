@@ -1,4 +1,4 @@
-package xyz.iterus.authenticator.feature.token.domain
+package xyz.iterus.authenticator.feature.token.domain.usecase
 
 import io.mockk.coEvery
 import io.mockk.mockkClass

@@ -1,4 +1,4 @@
-package xyz.iterus.authenticator.feature.token.domain
+package xyz.iterus.authenticator.feature.token.domain.model
 
 import org.junit.Test
 import org.junit.Assert.*
