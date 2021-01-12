@@ -3,9 +3,9 @@ package xyz.iterus.build.defaults.dependencies
 object CoreDependencies {
 
     internal object Versions {
-        const val kotlin = "1.4.10"
-        const val koin = "2.2.1"
-        const val coroutines = "1.4.1"
+        const val kotlin = "1.4.21"
+        const val koin = "2.2.2"
+        const val coroutines = "1.4.2"
     }
 
     const val kotlin_std = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"

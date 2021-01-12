@@ -1,33 +1,21 @@
 package xyz.iterus.build.defaults
 
-import com.android.build.gradle.api.AndroidBasePlugin
 import kotlin.run
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.hasPlugin
 import org.gradle.kotlin.dsl.project
 import xyz.iterus.build.defaults.dependencies.TestDependencies
 
-internal class AndroidDefaultsPlugin: Plugin<Project> {
+internal class DependenciesPlugin: Plugin<Project> {
 
     override fun apply(project: Project) = project.run {
-        if (containsAndroidPlugin()) {
-            applyAndroidConfig()
-            applyAndroidPlugins()
+        if (project.parent != null) {
+            // apply only to non-root projects
             applyBaseDependencies()
             applyTestDependencies()
-        } else {
-            logger.warn("${this@AndroidDefaultsPlugin::class.simpleName} is applied to a non-android module: $name")
         }
     }
-}
-
-internal fun Project.containsAndroidPlugin(): Boolean = plugins.hasPlugin(AndroidBasePlugin::class)
-
-internal fun Project.applyAndroidPlugins() {
-    plugins.apply("org.jetbrains.kotlin.android")
-    plugins.apply("org.jetbrains.kotlin.android.extensions")
 }
 
 internal fun Project.applyBaseDependencies() = dependencies {

@@ -5,7 +5,11 @@ plugins {
 gradlePlugin {
     plugins.register("build.defaults.android") {
         id = "build.defaults.android"
-        implementationClass = "xyz.iterus.build.defaults.AndroidDefaultsPlugin"
+        implementationClass = "xyz.iterus.build.defaults.AndroidConfigPlugin"
+    }
+    plugins.register("build.defaults.deps") {
+        id = "build.defaults.deps"
+        implementationClass = "xyz.iterus.build.defaults.DependenciesPlugin"
     }
 }
 
