@@ -3,9 +3,9 @@ package xyz.iterus.build.defaults.dependencies
 object TestDependencies {
 
     private object Versions {
-        const val junit = "4.13.1"
+        const val junit = "4.13.2"
         const val junit_ext = "1.1.2"
-        const val mockk = "1.10.4"
+        const val mockk = "1.10.6"
         const val espresso = "3.3.0"
     }
 

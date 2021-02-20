@@ -4,12 +4,12 @@ object JetpackDependencies {
 
     private object Versions {
         const val appcompat = "1.2.0"
-        const val fragment = "1.2.5"
+        const val fragment = "1.3.0"
         const val constraintlayout = "2.0.4"
         const val recyclerview = "1.1.0"
         const val cardview = "1.0.0"
-        const val lifecycle = "2.2.0"
-        const val navigation = "2.3.2"
+        const val lifecycle = "2.3.0"
+        const val navigation = "2.3.3"
         const val ktx_core = "1.3.2"
     }
 

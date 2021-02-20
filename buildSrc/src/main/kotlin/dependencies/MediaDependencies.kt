@@ -3,7 +3,7 @@ package xyz.iterus.build.defaults.dependencies
 object MediaDependencies {
 
     private object Versions {
-        const val glide = "4.11.0"
+        const val glide = "4.12.0"
     }
 
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
