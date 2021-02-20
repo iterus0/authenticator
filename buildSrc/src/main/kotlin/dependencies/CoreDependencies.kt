@@ -3,7 +3,7 @@ package xyz.iterus.build.defaults.dependencies
 object CoreDependencies {
 
     internal object Versions {
-        const val kotlin = "1.4.21"
+        const val kotlin = "1.4.30"
         const val koin = "2.2.2"
         const val coroutines = "1.4.2"
     }
