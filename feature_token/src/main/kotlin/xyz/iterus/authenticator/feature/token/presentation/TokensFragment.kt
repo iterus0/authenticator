@@ -27,4 +27,9 @@ internal class TokensFragment: Fragment(R.layout.fragment_tokens) {
             tokensAdapter.submitList(it)
         })
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        token_list.adapter = null
+    }
 }
