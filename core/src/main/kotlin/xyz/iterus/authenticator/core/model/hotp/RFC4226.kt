@@ -1,11 +1,11 @@
-package xyz.iterus.authenticator.feature.token.domain.model.hotp
+package xyz.iterus.authenticator.core.model.hotp
 
 import xyz.iterus.authenticator.library.base.toByteArray
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 import kotlin.math.abs
 
-internal class RFC4226: HOTP {
+class RFC4226: HOTP {
 
     override fun generate(secret: String, counter: Long, digits: Int, algorithm: HOTP.HashAlgorithm): String =
         format(generateNumber(secret, counter, digits, algorithm), digits)

@@ -7,8 +7,8 @@ import org.koin.test.KoinTest
 import org.koin.test.KoinTestRule
 import org.koin.test.inject
 import xyz.iterus.authenticator.feature.token.di.TokensModule
-import xyz.iterus.authenticator.feature.token.domain.model.hotp.HOTP.HashAlgorithm
-import xyz.iterus.authenticator.feature.token.domain.model.totp.RFC6238
+import xyz.iterus.authenticator.core.model.hotp.HOTP.HashAlgorithm
+import xyz.iterus.authenticator.core.model.totp.RFC6238
 
 class RFC6238Test: KoinTest {
 

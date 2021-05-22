@@ -1,4 +1,4 @@
-package xyz.iterus.authenticator.feature.token.domain.model.hotp
+package xyz.iterus.authenticator.core.model.hotp
 
 interface HOTP {
 

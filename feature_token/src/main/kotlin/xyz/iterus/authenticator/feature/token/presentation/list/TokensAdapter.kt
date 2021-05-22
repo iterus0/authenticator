@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
 import xyz.iterus.authenticator.feature.token.R
-import xyz.iterus.authenticator.feature.token.domain.model.Token
-import xyz.iterus.authenticator.feature.token.domain.model.hotp.HOTPToken
-import xyz.iterus.authenticator.feature.token.domain.model.totp.TOTPToken
+import xyz.iterus.authenticator.core.model.Token
+import xyz.iterus.authenticator.core.model.hotp.HOTPToken
+import xyz.iterus.authenticator.core.model.totp.TOTPToken
 
 internal class TokensAdapter: RecyclerView.Adapter<TokenViewHolder>() {
 

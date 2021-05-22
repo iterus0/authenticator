@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
-import xyz.iterus.authenticator.feature.token.domain.model.Token
+import xyz.iterus.authenticator.core.model.Token
 import xyz.iterus.authenticator.feature.token.domain.usecase.GetNextRefreshTimeUseCase
 import xyz.iterus.authenticator.feature.token.domain.usecase.GetTokensUseCase
 

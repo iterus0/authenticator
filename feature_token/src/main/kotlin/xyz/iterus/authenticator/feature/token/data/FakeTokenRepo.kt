@@ -1,6 +1,6 @@
 package xyz.iterus.authenticator.feature.token.data
 
-import xyz.iterus.authenticator.feature.token.domain.model.Token
+import xyz.iterus.authenticator.core.model.Token
 import xyz.iterus.authenticator.feature.token.domain.repository.TokenRepo
 
 internal class FakeTokenRepo: TokenRepo {

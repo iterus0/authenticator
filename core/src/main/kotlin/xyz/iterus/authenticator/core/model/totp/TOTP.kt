@@ -1,6 +1,6 @@
-package xyz.iterus.authenticator.feature.token.domain.model.totp
+package xyz.iterus.authenticator.core.model.totp
 
-import xyz.iterus.authenticator.feature.token.domain.model.hotp.HOTP
+import xyz.iterus.authenticator.core.model.hotp.HOTP
 
 interface TOTP {
 

@@ -1,8 +1,8 @@
-package xyz.iterus.authenticator.feature.token.domain.model.totp
+package xyz.iterus.authenticator.core.model.totp
 
-import xyz.iterus.authenticator.feature.token.domain.model.hotp.HOTP
+import xyz.iterus.authenticator.core.model.hotp.HOTP
 
-internal class Steam(private val rfc6238: RFC6238): TOTP {
+class Steam(private val rfc6238: RFC6238): TOTP {
 
     private val alphabet = arrayOf(
         '2', '3', '4', '5', '6', '7', '8', '9',

@@ -3,8 +3,8 @@ package xyz.iterus.authenticator.feature.token.presentation.list
 import android.animation.ObjectAnimator
 import android.view.View
 import kotlinx.android.synthetic.main.layout_token_totp.view.*
-import xyz.iterus.authenticator.feature.token.domain.model.Token
-import xyz.iterus.authenticator.feature.token.domain.model.totp.TOTPToken
+import xyz.iterus.authenticator.core.model.Token
+import xyz.iterus.authenticator.core.model.totp.TOTPToken
 
 internal class TOTPViewHolder(itemView: View): TokenViewHolder(itemView) {
 

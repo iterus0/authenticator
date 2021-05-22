@@ -1,6 +1,6 @@
 package xyz.iterus.authenticator.feature.token.domain.repository
 
-import xyz.iterus.authenticator.feature.token.domain.model.Token
+import xyz.iterus.authenticator.core.model.Token
 
 interface TokenRepo {
 

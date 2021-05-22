@@ -1,8 +1,8 @@
-package xyz.iterus.authenticator.feature.token.domain.model.hotp
+package xyz.iterus.authenticator.core.model.hotp
 
-import xyz.iterus.authenticator.feature.token.domain.model.Token
+import xyz.iterus.authenticator.core.model.Token
 
-internal data class HOTPToken(
+data class HOTPToken(
     override val id: Int,
     override val label: String,
     override val imageUrl: String,

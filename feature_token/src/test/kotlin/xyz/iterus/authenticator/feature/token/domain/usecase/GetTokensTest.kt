@@ -13,10 +13,10 @@ import org.koin.test.inject
 import org.koin.test.mock.MockProviderRule
 import org.koin.test.mock.declareMock
 import xyz.iterus.authenticator.feature.token.di.TokensModule
-import xyz.iterus.authenticator.feature.token.domain.model.hotp.HOTP
-import xyz.iterus.authenticator.feature.token.domain.model.hotp.HOTPToken
-import xyz.iterus.authenticator.feature.token.domain.model.totp.TOTP
-import xyz.iterus.authenticator.feature.token.domain.model.totp.TOTPToken
+import xyz.iterus.authenticator.core.model.hotp.HOTP
+import xyz.iterus.authenticator.core.model.hotp.HOTPToken
+import xyz.iterus.authenticator.core.model.totp.TOTP
+import xyz.iterus.authenticator.core.model.totp.TOTPToken
 import xyz.iterus.authenticator.feature.token.domain.repository.TokenRepo
 import xyz.iterus.authenticator.feature.token.domain.usecase.GetTokensUseCase
 
