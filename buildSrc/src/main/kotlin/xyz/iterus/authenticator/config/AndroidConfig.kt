@@ -1,6 +1,7 @@
 package xyz.iterus.build.defaults
 
 import com.android.build.gradle.BaseExtension
+import org.gradle.api.JavaVersion
 import kotlin.run
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
@@ -40,6 +41,11 @@ internal fun Project.applyAndroidConfig() = extensions.getByType<BaseExtension>(
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     sourceSets.all {
