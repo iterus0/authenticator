@@ -1,7 +1,8 @@
 rootProject.buildFileName = "build.gradle.kts"
 
 include(
-    ":library_base",
     ":app",
+    ":library_base",
+    ":core",
     ":feature_token"
 )

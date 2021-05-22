@@ -8,6 +8,8 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":core"))
+
     implementation(JetpackDependencies.recyclerview)
     implementation(JetpackDependencies.cardview)
 

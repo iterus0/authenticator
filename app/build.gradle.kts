@@ -12,6 +12,7 @@ android.defaultConfig {
 
 
 dependencies {
+    implementation(project(":core"))
     implementation(project(":feature_token"))
 
     implementation(CoreDependencies.koin_android)
