@@ -8,5 +8,5 @@ plugins {
 }
 
 dependencies {
-
+    api(project(":common"))
 }
