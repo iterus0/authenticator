@@ -4,5 +4,5 @@ include(
     ":app",
     ":common",
     ":core",
-    ":feature_token"
+    ":features:tokens_list"
 )

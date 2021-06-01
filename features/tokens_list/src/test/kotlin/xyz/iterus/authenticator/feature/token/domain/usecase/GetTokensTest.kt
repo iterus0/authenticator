@@ -18,7 +18,6 @@ import xyz.iterus.authenticator.core.model.hotp.HOTPToken
 import xyz.iterus.authenticator.core.model.totp.TOTP
 import xyz.iterus.authenticator.core.model.totp.TOTPToken
 import xyz.iterus.authenticator.feature.token.domain.repository.TokenRepo
-import xyz.iterus.authenticator.feature.token.domain.usecase.GetTokensUseCase
 
 @ExperimentalCoroutinesApi
 class GetTokensTest: KoinTest {
