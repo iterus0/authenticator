@@ -15,10 +15,10 @@ gradlePlugin {
 
 repositories {
     google()
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
     // https://github.com/gradle/kotlin-dsl-samples/issues/1320
-    implementation("com.android.tools.build:gradle:4.1.2")
+    implementation("com.android.tools.build:gradle:4.2.1")
 }

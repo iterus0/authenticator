@@ -3,7 +3,7 @@ package xyz.iterus.build.defaults.dependencies
 object BuildDependencies {
 
     object Versions {
-        const val android_gradle = "4.1.2"
+        const val android_gradle = "4.2.1"
         const val gradle_versions = "0.36.0"
     }
 

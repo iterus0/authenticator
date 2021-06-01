@@ -12,22 +12,16 @@ internal class DependenciesPlugin: Plugin<Project> {
     override fun apply(project: Project) = project.run {
         if (project.parent != null) {
             // apply only to non-root projects
-            applyBaseDependencies()
             applyTestDependencies()
         }
     }
 }
 
-internal fun Project.applyBaseDependencies() = dependencies {
-    if (!name.contains("library")) {
-        add("implementation", dependencies.project(":library_base"))
-    }
-}
 
 /*
-Can't apply test dependencies in library_base,
+Can't apply test dependencies in core module,
 because there is no testApi() function, like api()
- */
+*/
 internal fun Project.applyTestDependencies() = dependencies {
     add("testImplementation", TestDependencies.junit)
     add("androidTestImplementation", TestDependencies.junit_ext)
