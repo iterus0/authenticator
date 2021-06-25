@@ -1,10 +1,9 @@
-name: CI
+name: Android CI
 
 on:
-  push:
   pull_request:
+  push:
     branches: [ develop ]
-
 
 jobs:
   build:
@@ -13,12 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cache Gradle packages
-        uses: actions/cache@v2
+      - uses: burrunan/gradle-cache-action@v1
+        name: Build project
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-              
-      - name: Build debug
-        run: ./gradlew buildDebug
+          job-id: jdk11
+          arguments: buildDebug
+          gradle-version: wrapper
