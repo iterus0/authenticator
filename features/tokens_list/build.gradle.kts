@@ -8,7 +8,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core"))
+    implementation(project(":features:token"))
 
     implementation(JetpackDependencies.recyclerview)
     implementation(JetpackDependencies.cardview)

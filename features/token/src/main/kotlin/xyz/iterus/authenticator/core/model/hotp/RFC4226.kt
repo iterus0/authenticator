@@ -3,7 +3,6 @@ package xyz.iterus.authenticator.core.model.hotp
 import xyz.iterus.authenticator.library.base.toByteArray
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
-import kotlin.math.abs
 
 class RFC4226: HOTP {
 

@@ -3,6 +3,6 @@ rootProject.buildFileName = "build.gradle.kts"
 include(
     ":app",
     ":common",
-    ":core",
+    ":features:token",
     ":features:tokens_list"
 )
