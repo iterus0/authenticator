@@ -1,4 +1,4 @@
-package xyz.iterus.authenticator.core.model.hotp
+package xyz.iterus.authenticator.token.hotp
 
 import xyz.iterus.authenticator.library.base.toByteArray
 import javax.crypto.Mac

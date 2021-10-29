@@ -3,11 +3,11 @@ package xyz.iterus.authenticator.feature.token.di
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import xyz.iterus.authenticator.feature.token.data.FakeTokenRepo
-import xyz.iterus.authenticator.core.model.hotp.HOTP
-import xyz.iterus.authenticator.core.model.hotp.RFC4226
-import xyz.iterus.authenticator.core.model.totp.RFC6238
-import xyz.iterus.authenticator.core.model.totp.Steam
-import xyz.iterus.authenticator.core.model.totp.TOTP
+import xyz.iterus.authenticator.token.hotp.HOTP
+import xyz.iterus.authenticator.token.hotp.RFC4226
+import xyz.iterus.authenticator.token.totp.RFC6238
+import xyz.iterus.authenticator.token.totp.Steam
+import xyz.iterus.authenticator.token.totp.TOTP
 import xyz.iterus.authenticator.feature.token.domain.repository.TokenRepo
 import xyz.iterus.authenticator.feature.token.domain.usecase.*
 import xyz.iterus.authenticator.feature.token.presentation.TokensViewModel

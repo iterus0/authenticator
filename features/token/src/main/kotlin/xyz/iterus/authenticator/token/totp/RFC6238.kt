@@ -1,6 +1,6 @@
-package xyz.iterus.authenticator.core.model.totp
+package xyz.iterus.authenticator.token.totp
 
-import xyz.iterus.authenticator.core.model.hotp.HOTP
+import xyz.iterus.authenticator.token.hotp.HOTP
 
 class RFC6238(private val hotp: HOTP): TOTP {
 

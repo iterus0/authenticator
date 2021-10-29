@@ -13,9 +13,9 @@ import org.koin.test.inject
 import org.koin.test.mock.MockProviderRule
 import org.koin.test.mock.declareMock
 import xyz.iterus.authenticator.feature.token.di.TokensModule
-import xyz.iterus.authenticator.core.model.hotp.HOTP
+import xyz.iterus.authenticator.token.hotp.HOTP
 import xyz.iterus.authenticator.feature.token.domain.model.HOTPToken
-import xyz.iterus.authenticator.core.model.totp.TOTP
+import xyz.iterus.authenticator.token.totp.TOTP
 import xyz.iterus.authenticator.feature.token.domain.model.TOTPToken
 import xyz.iterus.authenticator.feature.token.domain.repository.TokenRepo
 

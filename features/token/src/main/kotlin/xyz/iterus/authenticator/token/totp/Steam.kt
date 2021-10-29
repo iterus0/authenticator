@@ -1,6 +1,6 @@
-package xyz.iterus.authenticator.core.model.totp
+package xyz.iterus.authenticator.token.totp
 
-import xyz.iterus.authenticator.core.model.hotp.HOTP
+import xyz.iterus.authenticator.token.hotp.HOTP
 
 class Steam(private val rfc6238: RFC6238): TOTP {
 
