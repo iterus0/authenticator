@@ -1,4 +1,4 @@
-package xyz.iterus.authenticator.feature.token.domain.model
+package xyz.iterus.authenticator.token
 
 import org.junit.Test
 import org.junit.Assert.*
@@ -6,18 +6,17 @@ import org.junit.Rule
 import org.koin.test.KoinTest
 import org.koin.test.KoinTestRule
 import org.koin.test.inject
-import xyz.iterus.authenticator.feature.token.di.TokensModule
 import xyz.iterus.authenticator.token.hotp.HOTP.HashAlgorithm
 import xyz.iterus.authenticator.token.hotp.RFC4226
 
-class RFC4226Test: KoinTest {
+class RFC4226Test : KoinTest {
 
     private val hotp: RFC4226 by inject()
 
     @get:Rule
     val koinTestRule = KoinTestRule.create {
         printLogger()
-        modules(TokensModule.module)
+        modules(TestTokenModule.module)
     }
 
     // https://tools.ietf.org/html/rfc4226#appendix-D
