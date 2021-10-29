@@ -32,15 +32,8 @@ class RFC4226: HOTP {
 
     private fun format(otp: Int, digits: Int): String {
         val otpStr = otp.toString()
-        val sizeDiff = digits - otpStr.length
-
-        return if (sizeDiff > 0) {
-            ("0".repeat(sizeDiff) + otpStr)
-        } else {
-            otpStr.drop(abs(sizeDiff))
-        }
+        return otpStr.takeLast(digits).padStart(digits, '0')
     }
-
 
     // Overridden because of HOTPToken data class
     override fun equals(other: Any?): Boolean {
