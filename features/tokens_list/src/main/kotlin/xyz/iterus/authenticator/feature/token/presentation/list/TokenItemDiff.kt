@@ -1,8 +1,8 @@
 package xyz.iterus.authenticator.feature.token.presentation.list
 
 import androidx.recyclerview.widget.DiffUtil
-import xyz.iterus.authenticator.core.model.Token
-import xyz.iterus.authenticator.core.model.totp.TOTPToken
+import xyz.iterus.authenticator.feature.token.domain.model.Token
+import xyz.iterus.authenticator.feature.token.domain.model.TOTPToken
 
 internal class TokenItemDiff: DiffUtil.ItemCallback<Token>() {
 

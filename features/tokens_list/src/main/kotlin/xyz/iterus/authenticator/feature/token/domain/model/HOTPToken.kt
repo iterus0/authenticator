@@ -1,6 +1,6 @@
-package xyz.iterus.authenticator.core.model.hotp
+package xyz.iterus.authenticator.feature.token.domain.model
 
-import xyz.iterus.authenticator.core.model.Token
+import xyz.iterus.authenticator.core.model.hotp.HOTP
 
 data class HOTPToken(
     override val id: Int,

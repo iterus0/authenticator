@@ -1,6 +1,6 @@
 package xyz.iterus.authenticator.feature.token.domain.usecase
 
-import xyz.iterus.authenticator.core.model.Token
+import xyz.iterus.authenticator.feature.token.domain.model.Token
 import xyz.iterus.authenticator.feature.token.domain.repository.TokenRepo
 
 class GetTokensUseCase(private val repo: TokenRepo) {

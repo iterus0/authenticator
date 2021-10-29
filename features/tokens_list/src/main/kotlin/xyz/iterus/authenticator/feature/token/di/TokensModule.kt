@@ -1,6 +1,6 @@
 package xyz.iterus.authenticator.feature.token.di
 
-import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import xyz.iterus.authenticator.feature.token.data.FakeTokenRepo
 import xyz.iterus.authenticator.core.model.hotp.HOTP

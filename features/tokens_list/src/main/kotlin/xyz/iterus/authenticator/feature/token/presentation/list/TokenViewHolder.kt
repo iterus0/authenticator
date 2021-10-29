@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.layout_token_base.view.*
 import xyz.iterus.authenticator.feature.token.R
-import xyz.iterus.authenticator.core.model.Token
+import xyz.iterus.authenticator.feature.token.domain.model.Token
 
 internal open class TokenViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 

@@ -1,4 +1,4 @@
-package xyz.iterus.authenticator.core.model
+package xyz.iterus.authenticator.feature.token.domain.model
 
 interface Token {
     val id: Int
