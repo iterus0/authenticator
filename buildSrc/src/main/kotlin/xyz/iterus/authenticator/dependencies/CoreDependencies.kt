@@ -8,8 +8,6 @@ object CoreDependencies {
         const val coroutines = "1.4.2"
     }
 
-    const val kotlin_std = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
-
     const val koin_core = "io.insert-koin:koin-core:${Versions.koin}"
     const val koin_android = "io.insert-koin:koin-android:${Versions.koin}"
     const val koin_viewmodel = "io.insert-koin:koin-android-viewmodel:${Versions.koin}"

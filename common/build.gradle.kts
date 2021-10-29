@@ -8,7 +8,6 @@ plugins {
 }
 
 dependencies {
-    api(CoreDependencies.kotlin_std)
     api(CoreDependencies.coroutines_core)
     api(CoreDependencies.coroutines_android)
 
