@@ -1,4 +1,4 @@
-package xyz.iterus.authenticator.library.base
+package xyz.iterus.authenticator.common.utils
 
 import java.nio.ByteBuffer
 

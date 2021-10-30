@@ -1,6 +1,6 @@
 package xyz.iterus.authenticator.token.hotp
 
-import xyz.iterus.authenticator.library.base.toByteArray
+import xyz.iterus.authenticator.common.utils.toByteArray
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 

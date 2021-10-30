@@ -17,6 +17,7 @@ compileKotlin.kotlinOptions {
 }
 
 dependencies {
+    implementation(project(":common-utils"))
     implementation(CoreDependencies.coroutines_core)
 
     testImplementation(TestDependencies.junit)
