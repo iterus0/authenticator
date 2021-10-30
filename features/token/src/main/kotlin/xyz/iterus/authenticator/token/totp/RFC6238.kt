@@ -6,8 +6,11 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import xyz.iterus.authenticator.token.hotp.HOTP
+import xyz.iterus.authenticator.token.hotp.RFC4226
 
-class RFC6238(private val hotp: HOTP) : TOTP {
+class RFC6238(
+    private val hotp: HOTP = RFC4226(RFC4226.HashAlgorithm.SHA1)
+) : TOTP {
 
     override fun generateToken(secret: String, time: Long, period: Int, digits: Int): String =
         hotp.generateToken(secret, time / period, digits)

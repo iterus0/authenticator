@@ -10,7 +10,7 @@ import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 
 class RFC4226(
-    private val algorithm: HashAlgorithm
+    private val algorithm: HashAlgorithm = HashAlgorithm.SHA1
 ) : HOTP {
 
     enum class HashAlgorithm {
