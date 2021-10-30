@@ -1,12 +1,22 @@
 package xyz.iterus.authenticator.token.totp
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import xyz.iterus.authenticator.token.hotp.HOTP
-import xyz.iterus.authenticator.token.hotp.RFC4226
 
 class RFC6238(private val hotp: HOTP) : TOTP {
 
     override fun generate(secret: String, time: Long, period: Int): String =
         hotp.generate(secret, time / period)
+
+    override fun observeToken(secret: String, period: Int): Flow<String> {
+        return generateSequence { System.currentTimeMillis() }.asFlow()
+            .map { currentTime -> generate(secret, currentTime, period) }
+            .flowOn(Dispatchers.Default)
+    }
 
     // Overridden because of TOTPToken data class
     override fun equals(other: Any?): Boolean {

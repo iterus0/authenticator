@@ -1,5 +1,10 @@
 package xyz.iterus.authenticator.token.hotp
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import xyz.iterus.authenticator.common.utils.toByteArray
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
@@ -14,6 +19,12 @@ class RFC4226(
 
     override fun generate(secret: String, counter: Long): String =
         generateNumber(secret, counter).toString()
+
+    override fun observeToken(secret: String, counter: Long): Flow<String> {
+        return generateSequence(counter) { counter + 1 }.asFlow()
+            .map { count -> generate(secret, count) }
+            .flowOn(Dispatchers.Default)
+    }
 
     private fun generateNumber(secret: String, counter: Long): Int {
         val hmac = generateHmac(algorithm, secret.toByteArray(), counter.toByteArray())

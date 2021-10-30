@@ -1,5 +1,8 @@
 package xyz.iterus.authenticator.token.totp
 
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+
 class Steam(private val rfc6238: RFC6238) : TOTP {
 
     private val alphabet = arrayOf(
@@ -7,27 +10,28 @@ class Steam(private val rfc6238: RFC6238) : TOTP {
         'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'M',
         'N', 'P', 'Q', 'R', 'T', 'V', 'W', 'X', 'Y'
     )
+    private val radix = alphabet.size
 
     override fun generate(secret: String, time: Long, period: Int): String {
         val rfc6238Token = rfc6238.generate(secret, time, period)
-
-        return rfc6238Token.toIntOrNull()?.let {
-            format(it, 5)
-        }.orEmpty()
+        return format(rfc6238Token)
     }
 
+    override fun observeToken(secret: String, period: Int): Flow<String> {
+        return rfc6238.observeToken(secret, period)
+            .map { token -> format(token) }
+    }
 
-    private fun format(otp: Int, digits: Int): String {
-        var otpNum = otp
-        val base = alphabet.size
-        val result = StringBuilder()
+    /**
+     * Steam token is basically RFC6238 token converted to custom number system
+     */
+    private fun format(otp: String, digits: Int = 5): String {
+        val otpNum = otp.toIntOrNull() ?: return ""
 
-        for (idx in (0 until digits)) {
-            result.append(alphabet[otpNum % base])
-            otpNum /= base
-        }
-
-        return result.toString()
+        return otpNum.toString(radix).asSequence()
+            .map { digit -> alphabet[digit.digitToInt(radix)] }
+            .take(digits)
+            .toString()
     }
 
 
