@@ -13,7 +13,7 @@ class RFC6238(private val hotp: HOTP) : TOTP {
         hotp.generateToken(secret, time / period, digits)
 
     override fun observeToken(secret: String, period: Int, digits: Int): Flow<String> {
-        return generateSequence { System.currentTimeMillis() }.asFlow()
+        return generateSequence { System.currentTimeMillis() / 1000 }.asFlow()
             .map { currentTime -> generateToken(secret, currentTime, period, digits) }
             .flowOn(Dispatchers.Default)
     }
