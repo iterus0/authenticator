@@ -2,7 +2,7 @@ package xyz.iterus.authenticator.token.totp
 
 import xyz.iterus.authenticator.token.hotp.HOTP
 
-class Steam(private val rfc6238: RFC6238): TOTP {
+class Steam(private val rfc6238: RFC6238) : TOTP {
 
     private val alphabet = arrayOf(
         '2', '3', '4', '5', '6', '7', '8', '9',

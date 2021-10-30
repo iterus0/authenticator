@@ -4,7 +4,7 @@ import xyz.iterus.authenticator.library.base.toByteArray
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 
-class RFC4226: HOTP {
+class RFC4226 : HOTP {
 
     override fun generate(secret: String, counter: Long, digits: Int, algorithm: HOTP.HashAlgorithm): String =
         format(generateNumber(secret, counter, digits, algorithm), digits)
@@ -20,6 +20,7 @@ class RFC4226: HOTP {
             .reduce { acc, byte -> acc or byte }
     }
 
+    // TODO: Generate Mac only during class instantiation
     private fun generateHmac(algorithm: HOTP.HashAlgorithm, secret: ByteArray, data: ByteArray): ByteArray {
         val algName = "Hmac$algorithm"
 

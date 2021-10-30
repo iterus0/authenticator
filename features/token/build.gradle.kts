@@ -1,12 +1,26 @@
-import xyz.iterus.build.defaults.dependencies.*
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import xyz.iterus.build.defaults.dependencies.CoreDependencies
+import xyz.iterus.build.defaults.dependencies.TestDependencies
 
 plugins {
-    id("com.android.library")
-    id("build.defaults.android")
-    id("build.defaults.deps")
-    kotlin("kapt")
+    kotlin("jvm")
+}
+
+val compileKotlin: KotlinCompile by tasks
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+compileKotlin.kotlinOptions {
+    jvmTarget = JavaVersion.VERSION_1_8.toString()
 }
 
 dependencies {
-    api(project(":common"))
+    implementation(CoreDependencies.coroutines_core)
+
+    testImplementation(TestDependencies.junit)
+    testImplementation(TestDependencies.koin_test)
+    testImplementation(TestDependencies.coroutines_test)
+    testImplementation(TestDependencies.mockk)
 }
