@@ -12,14 +12,14 @@ class Steam(private val rfc6238: RFC6238) : TOTP {
     )
     private val radix = alphabet.size
 
-    override fun generateToken(secret: String, time: Long, period: Int): String {
-        val rfc6238Token = rfc6238.generateToken(secret, time, period)
+    override fun generateToken(secret: String, time: Long, period: Int, digits: Int): String {
+        val rfc6238Token = rfc6238.generateToken(secret, time, period, digits)
         return format(rfc6238Token)
     }
 
-    override fun observeToken(secret: String, period: Int): Flow<String> {
-        return rfc6238.observeToken(secret, period)
-            .map { token -> format(token) }
+    override fun observeToken(secret: String, period: Int, digits: Int): Flow<String> {
+        return rfc6238.observeToken(secret, period, digits)
+            .map { token -> format(token, digits) }
     }
 
     /**

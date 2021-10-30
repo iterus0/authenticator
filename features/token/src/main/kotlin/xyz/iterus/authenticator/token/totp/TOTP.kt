@@ -4,6 +4,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface TOTP {
 
-    fun generateToken(secret: String, time: Long, period: Int): String
-    fun observeToken(secret: String, period: Int): Flow<String>
+    fun generateToken(secret: String, time: Long, period: Int, digits: Int): String
+    fun observeToken(secret: String, period: Int, digits: Int): Flow<String>
 }

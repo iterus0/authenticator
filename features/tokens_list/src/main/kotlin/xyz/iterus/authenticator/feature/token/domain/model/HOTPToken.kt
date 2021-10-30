@@ -15,7 +15,7 @@ data class HOTPToken(
 ): Token {
 
     override fun getToken(): String {
-        val token = hotp.generateToken(secret, counter)
+        val token = hotp.generateToken(secret, counter, digits)
         counter += 1
 
         return token

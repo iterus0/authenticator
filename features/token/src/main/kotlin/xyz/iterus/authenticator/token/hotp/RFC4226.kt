@@ -17,12 +17,12 @@ class RFC4226(
         SHA1, SHA256, SHA512
     }
 
-    override fun generateToken(secret: String, counter: Long): String =
-        generateNumber(secret, counter).toString()
+    override fun generateToken(secret: String, counter: Long, digits: Int): String =
+        format(generateNumber(secret, counter), digits)
 
-    override fun observeToken(secret: String, counter: Long): Flow<String> {
+    override fun observeToken(secret: String, counter: Long, digits: Int): Flow<String> {
         return generateSequence(counter) { counter + 1 }.asFlow()
-            .map { count -> generateToken(secret, count) }
+            .map { count -> generateToken(secret, count, digits) }
             .flowOn(Dispatchers.Default)
     }
 
