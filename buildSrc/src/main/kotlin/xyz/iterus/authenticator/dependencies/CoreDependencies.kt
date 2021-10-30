@@ -3,9 +3,9 @@ package xyz.iterus.build.defaults.dependencies
 object CoreDependencies {
 
     internal object Versions {
-        const val kotlin = "1.5.10"
-        const val koin = "2.2.2"
-        const val coroutines = "1.4.2"
+        const val kotlin = "1.5.31"
+        const val koin = "3.1.3"
+        const val coroutines = "1.5.2"
     }
 
     const val koin_core = "io.insert-koin:koin-core:${Versions.koin}"

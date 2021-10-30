@@ -12,7 +12,7 @@ dependencies {
     api(CoreDependencies.coroutines_android)
 
     api(CoreDependencies.koin_core)
-    api(CoreDependencies.koin_viewmodel)
+    api(CoreDependencies.koin_android)
 
     api(JetpackDependencies.lifecycle_viewmodel)
     api(JetpackDependencies.lifecycle_livedata)
