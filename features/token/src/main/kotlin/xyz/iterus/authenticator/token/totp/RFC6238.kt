@@ -9,12 +9,12 @@ import xyz.iterus.authenticator.token.hotp.HOTP
 
 class RFC6238(private val hotp: HOTP) : TOTP {
 
-    override fun generate(secret: String, time: Long, period: Int): String =
-        hotp.generate(secret, time / period)
+    override fun generateToken(secret: String, time: Long, period: Int): String =
+        hotp.generateToken(secret, time / period)
 
     override fun observeToken(secret: String, period: Int): Flow<String> {
         return generateSequence { System.currentTimeMillis() }.asFlow()
-            .map { currentTime -> generate(secret, currentTime, period) }
+            .map { currentTime -> generateToken(secret, currentTime, period) }
             .flowOn(Dispatchers.Default)
     }
 

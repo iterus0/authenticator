@@ -32,7 +32,7 @@ class RFC4226Test : KoinTest {
         val count = 0L until expectedOtp.size
 
         // WHEN
-        val otp = count.map { counter -> hotp.generate(secret, counter, digits, alg) }
+        val otp = count.map { counter -> hotp.generateToken(secret, counter, digits, alg) }
 
         // THEN
         assertEquals(expectedOtp, otp)
@@ -50,7 +50,7 @@ class RFC4226Test : KoinTest {
         val count = 0L until expectedOtp.size
 
         // WHEN
-        val otp = count.map { counter -> hotp.generate(secret, counter, digits, alg) }
+        val otp = count.map { counter -> hotp.generateToken(secret, counter, digits, alg) }
 
         // THEN
         assertEquals(expectedOtp, otp)
@@ -69,7 +69,7 @@ class RFC4226Test : KoinTest {
         val countRange = counter until counter+expectedOtp.size
 
         // WHEN
-        val otp = countRange.map { c -> hotp.generate(secret, c, digits, alg) }
+        val otp = countRange.map { c -> hotp.generateToken(secret, c, digits, alg) }
 
         // THEN
         assertEquals(expectedOtp, otp)
@@ -87,7 +87,7 @@ class RFC4226Test : KoinTest {
         val count = 0L until expectedOtp.size
 
         // WHEN
-        val otp = count.map { counter -> hotp.generate(secret, counter, digits, alg) }
+        val otp = count.map { counter -> hotp.generateToken(secret, counter, digits, alg) }
 
         // THEN
         assertEquals(expectedOtp, otp)
@@ -105,7 +105,7 @@ class RFC4226Test : KoinTest {
         val count = 0L until expectedOtp.size
 
         // WHEN
-        val otp = count.map { counter -> hotp.generate(secret, counter, digits, alg) }
+        val otp = count.map { counter -> hotp.generateToken(secret, counter, digits, alg) }
 
         // THEN
         assertEquals(expectedOtp, otp)

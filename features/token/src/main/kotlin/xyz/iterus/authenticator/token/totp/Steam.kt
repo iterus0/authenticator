@@ -12,8 +12,8 @@ class Steam(private val rfc6238: RFC6238) : TOTP {
     )
     private val radix = alphabet.size
 
-    override fun generate(secret: String, time: Long, period: Int): String {
-        val rfc6238Token = rfc6238.generate(secret, time, period)
+    override fun generateToken(secret: String, time: Long, period: Int): String {
+        val rfc6238Token = rfc6238.generateToken(secret, time, period)
         return format(rfc6238Token)
     }
 
