@@ -21,7 +21,7 @@ class RFC4226(
         format(generateNumber(secret, counter), digits)
 
     override fun observeToken(secret: String, counter: Long, digits: Int): Flow<String> {
-        return generateSequence(counter) { counter + 1 }.asFlow()
+        return generateSequence(counter) { it + 1 }.asFlow()
             .map { count -> generateToken(secret, count, digits) }
             .flowOn(Dispatchers.Default)
     }
