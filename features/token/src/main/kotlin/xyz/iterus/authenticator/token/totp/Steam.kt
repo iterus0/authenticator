@@ -1,6 +1,8 @@
 package xyz.iterus.authenticator.token.totp
 
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 
 class Steam(private val rfc6238: RFC6238) : TOTP {
@@ -20,6 +22,7 @@ class Steam(private val rfc6238: RFC6238) : TOTP {
     override fun observeToken(secret: String, period: Int, digits: Int): Flow<String> {
         return rfc6238.observeToken(secret, period, digits)
             .map { token -> format(token, digits) }
+            .flowOn(Dispatchers.Default)
     }
 
     /**
