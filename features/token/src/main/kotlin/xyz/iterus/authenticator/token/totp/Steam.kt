@@ -1,7 +1,5 @@
 package xyz.iterus.authenticator.token.totp
 
-import xyz.iterus.authenticator.token.hotp.RFC4226
-
 class Steam(private val rfc6238: RFC6238) : TOTP {
 
     private val alphabet = arrayOf(
@@ -10,11 +8,13 @@ class Steam(private val rfc6238: RFC6238) : TOTP {
         'N', 'P', 'Q', 'R', 'T', 'V', 'W', 'X', 'Y'
     )
 
-    override fun generate(secret: String, time: Long, period: Int, digits: Int, alg: RFC4226.HashAlgorithm): String =
-        format(generateNumber(secret, time, period, digits, alg), digits)
+    override fun generate(secret: String, time: Long, period: Int): String {
+        val rfc6238Token = rfc6238.generate(secret, time, period)
 
-    override fun generateNumber(secret: String, time: Long, period: Int, digits: Int, alg: RFC4226.HashAlgorithm): Int =
-        rfc6238.generateNumber(secret, time, period, digits, alg)
+        return rfc6238Token.toIntOrNull()?.let {
+            format(it, 5)
+        }.orEmpty()
+    }
 
 
     private fun format(otp: Int, digits: Int): String {

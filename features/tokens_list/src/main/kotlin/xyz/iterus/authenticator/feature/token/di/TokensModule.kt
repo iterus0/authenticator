@@ -17,7 +17,8 @@ object TokensModule {
 
     val module = module {
 
-        factory { RFC4226() }
+        factory { RFC4226.HashAlgorithm.SHA1 }
+        factory { RFC4226(get()) }
         factory { RFC6238(get()) }
         factory { Steam(get()) }
         factory<HOTP> { get<RFC4226>() }

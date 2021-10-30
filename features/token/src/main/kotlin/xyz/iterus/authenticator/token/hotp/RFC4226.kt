@@ -4,16 +4,18 @@ import xyz.iterus.authenticator.common.utils.toByteArray
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 
-class RFC4226 : HOTP {
+class RFC4226(
+    private val algorithm: HashAlgorithm
+) : HOTP {
 
     enum class HashAlgorithm {
         SHA1, SHA256, SHA512
     }
 
-    override fun generate(secret: String, counter: Long, digits: Int, algorithm: HashAlgorithm): String =
-        format(generateNumber(secret, counter, digits, algorithm), digits)
+    override fun generate(secret: String, counter: Long): String =
+        generateNumber(secret, counter).toString()
 
-    override fun generateNumber(secret: String, counter: Long, digits: Int, algorithm: HashAlgorithm): Int {
+    private fun generateNumber(secret: String, counter: Long): Int {
         val hmac = generateHmac(algorithm, secret.toByteArray(), counter.toByteArray())
         val offset = hmac.last().toInt() and 0xF
 
