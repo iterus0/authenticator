@@ -6,10 +6,14 @@ import javax.crypto.spec.SecretKeySpec
 
 class RFC4226 : HOTP {
 
-    override fun generate(secret: String, counter: Long, digits: Int, algorithm: HOTP.HashAlgorithm): String =
+    enum class HashAlgorithm {
+        SHA1, SHA256, SHA512
+    }
+
+    override fun generate(secret: String, counter: Long, digits: Int, algorithm: HashAlgorithm): String =
         format(generateNumber(secret, counter, digits, algorithm), digits)
 
-    override fun generateNumber(secret: String, counter: Long, digits: Int, algorithm: HOTP.HashAlgorithm): Int {
+    override fun generateNumber(secret: String, counter: Long, digits: Int, algorithm: HashAlgorithm): Int {
         val hmac = generateHmac(algorithm, secret.toByteArray(), counter.toByteArray())
         val offset = hmac.last().toInt() and 0xF
 
@@ -21,7 +25,7 @@ class RFC4226 : HOTP {
     }
 
     // TODO: Generate Mac only during class instantiation
-    private fun generateHmac(algorithm: HOTP.HashAlgorithm, secret: ByteArray, data: ByteArray): ByteArray {
+    private fun generateHmac(algorithm: HashAlgorithm, secret: ByteArray, data: ByteArray): ByteArray {
         val algName = "Hmac$algorithm"
 
         with (Mac.getInstance(algName)) {

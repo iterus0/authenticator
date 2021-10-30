@@ -1,6 +1,6 @@
 package xyz.iterus.authenticator.feature.token.domain.model
 
-import xyz.iterus.authenticator.token.hotp.HOTP
+import xyz.iterus.authenticator.token.hotp.RFC4226
 import xyz.iterus.authenticator.token.totp.TOTP
 
 data class TOTPToken(
@@ -11,7 +11,7 @@ data class TOTPToken(
     private val secret: String,
     val period: Int = 30,
     val digits: Int = 6,
-    val alg: HOTP.HashAlgorithm = HOTP.HashAlgorithm.SHA1
+    val alg: RFC4226.HashAlgorithm = RFC4226.HashAlgorithm.SHA1
 ): Token {
 
     private val periodMs = period * 1000L

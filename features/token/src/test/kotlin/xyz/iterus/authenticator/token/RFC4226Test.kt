@@ -6,7 +6,7 @@ import org.junit.Rule
 import org.koin.test.KoinTest
 import org.koin.test.KoinTestRule
 import org.koin.test.inject
-import xyz.iterus.authenticator.token.hotp.HOTP.HashAlgorithm
+import xyz.iterus.authenticator.token.hotp.RFC4226.HashAlgorithm
 import xyz.iterus.authenticator.token.hotp.RFC4226
 
 class RFC4226Test : KoinTest {

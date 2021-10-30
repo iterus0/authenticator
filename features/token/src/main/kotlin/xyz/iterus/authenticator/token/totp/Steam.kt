@@ -1,6 +1,6 @@
 package xyz.iterus.authenticator.token.totp
 
-import xyz.iterus.authenticator.token.hotp.HOTP
+import xyz.iterus.authenticator.token.hotp.RFC4226
 
 class Steam(private val rfc6238: RFC6238) : TOTP {
 
@@ -10,10 +10,10 @@ class Steam(private val rfc6238: RFC6238) : TOTP {
         'N', 'P', 'Q', 'R', 'T', 'V', 'W', 'X', 'Y'
     )
 
-    override fun generate(secret: String, time: Long, period: Int, digits: Int, alg: HOTP.HashAlgorithm): String =
+    override fun generate(secret: String, time: Long, period: Int, digits: Int, alg: RFC4226.HashAlgorithm): String =
         format(generateNumber(secret, time, period, digits, alg), digits)
 
-    override fun generateNumber(secret: String, time: Long, period: Int, digits: Int, alg: HOTP.HashAlgorithm): Int =
+    override fun generateNumber(secret: String, time: Long, period: Int, digits: Int, alg: RFC4226.HashAlgorithm): Int =
         rfc6238.generateNumber(secret, time, period, digits, alg)
 
 
