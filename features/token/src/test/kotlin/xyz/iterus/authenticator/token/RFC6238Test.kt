@@ -1,6 +1,6 @@
 package xyz.iterus.authenticator.token
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import xyz.iterus.authenticator.token.hotp.RFC4226
 import xyz.iterus.authenticator.token.hotp.RFC4226.HashAlgorithm
@@ -18,17 +18,23 @@ class RFC6238Test {
         val period = 30
         val totp: TOTP = RFC6238(RFC4226(HashAlgorithm.SHA1))
 
-        val ref = mapOf(59L to "94287082",
-                1111111109L to "07081804",
-                1111111111L to "14050471",
-                1234567890L to "89005924",
-                2000000000L to "69279037",
-               20000000000L to "65353130")
+        val expectedTokens = mapOf(
+            59L to "94287082",
+            1111111109L to "07081804",
+            1111111111L to "14050471",
+            1234567890L to "89005924",
+            2000000000L to "69279037",
+            20000000000L to "65353130"
+        )
 
-        for ((time, expected_otp) in ref) {
-            val otp = totp.generateToken(secret, time, period, digits)
-            assertEquals(expected_otp, otp)
-        }
+        // WHEN
+        val tokens = expectedTokens.map { (time, _) ->
+            val token = totp.generateToken(secret, time, period, digits)
+            time to token
+        }.toMap()
+
+        // THEN
+        assertEquals(expectedTokens, tokens)
     }
 
     // https://tools.ietf.org/html/rfc6238.html#appendix-B
@@ -40,17 +46,23 @@ class RFC6238Test {
         val period = 30
         val totp: TOTP = RFC6238(RFC4226(HashAlgorithm.SHA256))
 
-        val ref = mapOf(59L to "46119246",
-                1111111109L to "68084774",
-                1111111111L to "67062674",
-                1234567890L to "91819424",
-                2000000000L to "90698825",
-               20000000000L to "77737706")
+        val expectedTokens = mapOf(
+            59L to "46119246",
+            1111111109L to "68084774",
+            1111111111L to "67062674",
+            1234567890L to "91819424",
+            2000000000L to "90698825",
+            20000000000L to "77737706"
+        )
 
-        for ((time, expected_otp) in ref) {
-            val otp = totp.generateToken(secret, time, period, digits)
-            assertEquals(expected_otp, otp)
-        }
+        // WHEN
+        val tokens = expectedTokens.map { (time, _) ->
+            val token = totp.generateToken(secret, time, period, digits)
+            time to token
+        }.toMap()
+
+        // THEN
+        assertEquals(expectedTokens, tokens)
     }
 
     // https://tools.ietf.org/html/rfc6238.html#appendix-B
@@ -62,16 +74,22 @@ class RFC6238Test {
         val period = 30
         val totp: TOTP = RFC6238(RFC4226(HashAlgorithm.SHA512))
 
-        val ref = mapOf(59L to "90693936",
-                1111111109L to "25091201",
-                1111111111L to "99943326",
-                1234567890L to "93441116",
-                2000000000L to "38618901",
-               20000000000L to "47863826")
+        val expectedTokens = mapOf(
+            59L to "90693936",
+            1111111109L to "25091201",
+            1111111111L to "99943326",
+            1234567890L to "93441116",
+            2000000000L to "38618901",
+            20000000000L to "47863826"
+        )
 
-        for ((time, expected_otp) in ref) {
-            val otp = totp.generateToken(secret, time, period, digits)
-            assertEquals(expected_otp, otp)
-        }
+        // WHEN
+        val tokens = expectedTokens.map { (time, _) ->
+            val token = totp.generateToken(secret, time, period, digits)
+            time to token
+        }.toMap()
+
+        // THEN
+        assertEquals(expectedTokens, tokens)
     }
 }
