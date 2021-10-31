@@ -20,15 +20,4 @@ class RFC6238(
             .map { currentTime -> generateToken(secret, currentTime, period, digits) }
             .flowOn(Dispatchers.Default)
     }
-
-    // Overridden because of TOTPToken data class
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as RFC6238
-        return (hotp == other.hotp)
-    }
-
-    override fun hashCode(): Int = (31 * hotp.hashCode() + javaClass.hashCode())
 }

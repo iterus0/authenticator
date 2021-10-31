@@ -51,12 +51,4 @@ class RFC4226(
         val otpStr = otp.toString()
         return otpStr.takeLast(digits).padStart(digits, '0')
     }
-
-    // Overridden because of HOTPToken data class
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        return (javaClass == other?.javaClass)
-    }
-
-    override fun hashCode(): Int = javaClass.hashCode()
 }
