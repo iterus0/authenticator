@@ -1,0 +1,20 @@
+name: Android CI
+
+on:
+  pull_request:
+  push:
+    branches: [ develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: burrunan/gradle-cache-action@v1
+        name: Build project
+        with:
+          job-id: jdk11
+          arguments: buildDebug
+          gradle-version: wrapper
