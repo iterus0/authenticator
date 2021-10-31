@@ -1,38 +1,37 @@
 package xyz.iterus.authenticator.token
 
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 import org.junit.Assert.*
 import org.junit.Rule
 import org.koin.test.KoinTest
 import org.koin.test.KoinTestRule
 import org.koin.test.inject
+import xyz.iterus.authenticator.token.hotp.HOTP
 import xyz.iterus.authenticator.token.hotp.RFC4226.HashAlgorithm
 import xyz.iterus.authenticator.token.hotp.RFC4226
 
-class RFC4226Test : KoinTest {
-
-    private val hotp: RFC4226 by inject()
-
-    @get:Rule
-    val koinTestRule = KoinTestRule.create {
-        printLogger()
-        modules(TestTokenModule.module)
-    }
+class RFC4226Test {
 
     // https://tools.ietf.org/html/rfc4226#appendix-D
     @Test
-    fun `reference test values`() {
+    fun `reference test values`() = runBlocking {
         // GIVEN
         val secret = "12345678901234567890"
         val digits = 6
-        val alg = HashAlgorithm.SHA1
+        val hotp: HOTP = RFC4226(HashAlgorithm.SHA1)
 
         val expectedOtp = listOf("755224", "287082", "359152", "969429", "338314",
                                   "254676", "287922", "162583", "399871", "520489")
-        val count = 0L until expectedOtp.size
+        val counter = 0L
 
         // WHEN
-        val otp = count.map { counter -> hotp.generateToken(secret, counter, digits, alg) }
+        val otp = hotp.observeToken(secret, counter, digits)
+            .take(expectedOtp.size)
+            .toList()
 
         // THEN
         assertEquals(expectedOtp, otp)
@@ -43,14 +42,14 @@ class RFC4226Test : KoinTest {
         // GIVEN
         val secret = "12345678901234567890"
         val digits = 8
-        val alg = HashAlgorithm.SHA1
+        val hotp: HOTP = RFC4226(HashAlgorithm.SHA1)
 
         val expectedOtp = listOf("84755224", "94287082", "37359152", "26969429", "40338314",
                                   "68254676", "18287922", "82162583", "73399871", "45520489")
         val count = 0L until expectedOtp.size
 
         // WHEN
-        val otp = count.map { counter -> hotp.generateToken(secret, counter, digits, alg) }
+        val otp = count.map { counter -> hotp.generateToken(secret, counter, digits) }
 
         // THEN
         assertEquals(expectedOtp, otp)
@@ -61,7 +60,7 @@ class RFC4226Test : KoinTest {
         // GIVEN
         val secret = "12345678901234567890"
         val digits = 6
-        val alg = HashAlgorithm.SHA1
+        val hotp: HOTP = RFC4226(HashAlgorithm.SHA1)
         val counter = 754L
 
         val expectedOtp = listOf("346918", "221452", "873973", "635076",
@@ -69,7 +68,7 @@ class RFC4226Test : KoinTest {
         val countRange = counter until counter+expectedOtp.size
 
         // WHEN
-        val otp = countRange.map { c -> hotp.generateToken(secret, c, digits, alg) }
+        val otp = countRange.map { c -> hotp.generateToken(secret, c, digits) }
 
         // THEN
         assertEquals(expectedOtp, otp)
@@ -80,14 +79,14 @@ class RFC4226Test : KoinTest {
         // GIVEN
         val secret = "1234567890ABCDEFGHI"
         val digits = 6
-        val alg = HashAlgorithm.SHA256
+        val hotp: HOTP = RFC4226(HashAlgorithm.SHA256)
 
         val expectedOtp = listOf("273337", "030793", "294170", "018203",
                                   "769062", "439312", "643186", "748212")
         val count = 0L until expectedOtp.size
 
         // WHEN
-        val otp = count.map { counter -> hotp.generateToken(secret, counter, digits, alg) }
+        val otp = count.map { counter -> hotp.generateToken(secret, counter, digits) }
 
         // THEN
         assertEquals(expectedOtp, otp)
@@ -98,14 +97,14 @@ class RFC4226Test : KoinTest {
         // GIVEN
         val secret = "A1B2C3D4E5F6G7H8I9J0"
         val digits = 6
-        val alg = HashAlgorithm.SHA512
+        val hotp: HOTP = RFC4226(HashAlgorithm.SHA512)
 
         val expectedOtp = listOf("219463", "941555", "254677", "660247",
                                   "401413", "955362", "511074", "983955")
         val count = 0L until expectedOtp.size
 
         // WHEN
-        val otp = count.map { counter -> hotp.generateToken(secret, counter, digits, alg) }
+        val otp = count.map { counter -> hotp.generateToken(secret, counter, digits) }
 
         // THEN
         assertEquals(expectedOtp, otp)

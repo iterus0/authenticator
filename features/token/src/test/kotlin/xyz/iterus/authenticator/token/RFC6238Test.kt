@@ -1,23 +1,13 @@
 package xyz.iterus.authenticator.token
 
-import org.junit.Test
 import org.junit.Assert.*
-import org.junit.Rule
-import org.koin.test.KoinTest
-import org.koin.test.KoinTestRule
-import org.koin.test.inject
+import org.junit.Test
+import xyz.iterus.authenticator.token.hotp.RFC4226
 import xyz.iterus.authenticator.token.hotp.RFC4226.HashAlgorithm
 import xyz.iterus.authenticator.token.totp.RFC6238
+import xyz.iterus.authenticator.token.totp.TOTP
 
-class RFC6238Test : KoinTest {
-
-    private val totp: RFC6238 by inject()
-
-    @get:Rule
-    val koinTestRule = KoinTestRule.create {
-        printLogger()
-        modules(TestTokenModule.module)
-    }
+class RFC6238Test {
 
     // https://tools.ietf.org/html/rfc6238.html#appendix-B
     @Test
@@ -26,7 +16,7 @@ class RFC6238Test : KoinTest {
         val secret = "1234567890".repeat(2)
         val digits = 8
         val period = 30
-        val alg = HashAlgorithm.SHA1
+        val totp: TOTP = RFC6238(RFC4226(HashAlgorithm.SHA1))
 
         val ref = mapOf(59L to "94287082",
                 1111111109L to "07081804",
@@ -36,7 +26,7 @@ class RFC6238Test : KoinTest {
                20000000000L to "65353130")
 
         for ((time, expected_otp) in ref) {
-            val otp = totp.generateToken(secret, time, period, digits, alg)
+            val otp = totp.generateToken(secret, time, period, digits)
             assertEquals(expected_otp, otp)
         }
     }
@@ -48,7 +38,7 @@ class RFC6238Test : KoinTest {
         val secret = "1234567890".repeat(3) + "12"
         val digits = 8
         val period = 30
-        val alg = HashAlgorithm.SHA256
+        val totp: TOTP = RFC6238(RFC4226(HashAlgorithm.SHA256))
 
         val ref = mapOf(59L to "46119246",
                 1111111109L to "68084774",
@@ -58,7 +48,7 @@ class RFC6238Test : KoinTest {
                20000000000L to "77737706")
 
         for ((time, expected_otp) in ref) {
-            val otp = totp.generateToken(secret, time, period, digits, alg)
+            val otp = totp.generateToken(secret, time, period, digits)
             assertEquals(expected_otp, otp)
         }
     }
@@ -70,7 +60,7 @@ class RFC6238Test : KoinTest {
         val secret = "1234567890".repeat(6) + "1234"
         val digits = 8
         val period = 30
-        val alg = HashAlgorithm.SHA512
+        val totp: TOTP = RFC6238(RFC4226(HashAlgorithm.SHA512))
 
         val ref = mapOf(59L to "90693936",
                 1111111109L to "25091201",
@@ -80,7 +70,7 @@ class RFC6238Test : KoinTest {
                20000000000L to "47863826")
 
         for ((time, expected_otp) in ref) {
-            val otp = totp.generateToken(secret, time, period, digits, alg)
+            val otp = totp.generateToken(secret, time, period, digits)
             assertEquals(expected_otp, otp)
         }
     }
